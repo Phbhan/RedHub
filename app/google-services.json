@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "225811724880",
+    "project_id": "redhub-a0b58",
+    "storage_bucket": "redhub-a0b58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225811724880:android:66c93a39dd36a019b96f55",
+        "android_client_info": {
+          "package_name": "com.redhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225811724880-aoghu4t6f94al9jgf92s8pdf5dfd0k5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.redhub",
+            "certificate_hash": "2f87cde0b5c8a51afc93928bf9972690876e5558"
+          }
+        },
+        {
+          "client_id": "225811724880-b4s15innfjkrvcd53cnp4lj3srgj4tr7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-uIjHIWyUhHOT2Kd_WOpVNuSqap3ALEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225811724880-b4s15innfjkrvcd53cnp4lj3srgj4tr7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
