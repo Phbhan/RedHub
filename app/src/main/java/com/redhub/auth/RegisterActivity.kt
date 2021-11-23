@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.redhub.databinding.ActivityRegisterBinding
+import com.redhub.view.LoginActivity
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

@@ -22,7 +22,7 @@
             android:name=".auth.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".auth.LoginActivity"
+            android:name=".auth.LoginActivity_old"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
