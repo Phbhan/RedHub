@@ -13,14 +13,10 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginActivityViewModel
-    //private val EMAIL = "email"
-    //lateinit var callbackManager: CallbackManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-
 
         //init viewmodel here
         viewModel = ViewModelProvider(this).get(LoginActivityViewModel::class.java)

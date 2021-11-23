@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.redhub">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,16 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHub">
         <activity
+            android:name=".view.RegistrationActivity"
+            android:exported="false" />
+        <activity
             android:name=".profile.EditProfileActivity"
             android:exported="true" />
         <activity
             android:name=".profile.ViewProfileActivity"
             android:exported="true" />
+
         <activity
-            android:name=".auth.RegisterActivity"
-            android:exported="true" />
-        <activity
-            android:name=".auth.LoginActivity_old"
+            android:name=".view.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,8 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true" />
