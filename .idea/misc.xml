@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/base_button.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/base_icon.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/ic_lock.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/ic_person.xml" value="0.15729166666666666" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_login.xml" value="0.144" />
         <entry key="..\:/Users/uyen Trang/Uyen Trang/NAM 3/SE/RedHub/app/src/main/res/layout/activity_login.xml" value="0.12183383991894631" />
         <entry key="..\:/repos VS2019/RedHub/app/src/main/res/layout/activity_edit_profile.xml" value="0.21693840579710144" />
         <entry key="..\:/repos VS2019/RedHub/app/src/main/res/layout/activity_login.xml" value="0.1" />

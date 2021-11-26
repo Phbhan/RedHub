@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="heading">
+        <item name="android:textSize">42sp</item>
+        <item name="android:textColor">#FFDAD8</item>
+    </style>
+
+    <style name="subheading">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#FFDAD8</item>
+    </style>
+
+    <style name="text_btn">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="content">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#C0C0C0</item>
+    </style>
+
+    <style name="content_red">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#FF5D55</item>
+    </style>
+
+</resources>

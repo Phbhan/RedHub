@@ -1,61 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.LoginActivity">
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <!-- Background -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="Register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
-    <Button
-        android:id="@+id/btnForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/transparent"
-        android:text="Forget password?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- Logo -->
+        <View
+            android:id="@+id/logo"
+            android:layout_width="190dp"
+            android:layout_height="106.88dp"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/logo" />
+
+        <!-- Heading -->
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="209dp"
+            android:layout_height="53dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="180dp"
+            android:text="Welcome!"
+            android:textAppearance="@style/heading"
+            android:gravity="left" />
+
+        <!-- Subheading -->
+        <TextView
+            android:id="@+id/subheading"
+            android:layout_width="203dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="240dp"
+            android:text="Sign in to continue"
+            android:textAppearance="@style/subheading"
+            android:gravity="left" />
+
+        <!-- Email Field -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="320dp"
+            android:layout_marginLeft="32dp">
+
+            <!-- Icon Person -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="38dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/base_icon" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="17.49dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/ic_person" />
+
+            </FrameLayout>
+
+            <!-- Email -->
+            <EditText
+                android:id="@+id/edtEmail"
+                android:inputType="textEmailAddress"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="55dp"
+                android:paddingBottom="25dp"
+                android:hint="Email"
+                android:textColorHint="#C0C0C0"
+                android:textSize="18sp"
+                android:backgroundTint="#FFDAD8"/>
+
+        </FrameLayout>
+
+        <!-- Password Field -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="400dp"
+            android:layout_marginStart="32dp">
+
+            <!-- Icon Lock -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="38dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/base_icon" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="17.49dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/ic_lock" />
+
+            </FrameLayout>
+
+            <!-- Password -->
+            <EditText
+                android:id="@+id/edtPassword"
+                android:inputType="textPassword"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:paddingBottom="25dp"
+                android:hint="Password"
+                android:textColorHint="#C0C0C0"
+                android:textSize="18sp"
+                android:backgroundTint="#FFDAD8"/>
+
+            <!-- Icon Visible -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="55dp"
+                app:passwordToggleEnabled="true">
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </FrameLayout>
+
+        <!-- Sign In Button -->
+        <FrameLayout
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="550dp"
+            android:layout_gravity="center_horizontal" >
+
+            <!-- Base -->
+            <ImageButton
+                android:layout_width="315dp"
+                android:layout_height="58dp"
+                android:background="@drawable/base_button"
+                android:alpha="0.8" />
+
+            <!-- Sign in -->
+            <TextView
+                android:id="@+id/sign_in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Sign In"
+                android:textAppearance="@style/text_btn" />
+
+        </FrameLayout>
+
+        <!-- Forgot password? -->
+        <Button
+            android:id="@+id/btnForgetPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="630dp"
+            android:background="@android:color/transparent"
+            android:text="Forgot password?"
+            android:textAppearance="@style/content"
+            android:layout_gravity="center_horizontal" />
+
+        <!-- Create account? -->
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="660dp"
+            android:background="@android:color/transparent"
+            android:text="Create an account?"
+            android:textAppearance="@style/content_red"
+            android:layout_gravity="center_horizontal" />
+
+    </FrameLayout>
+</LinearLayout>
