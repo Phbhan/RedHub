@@ -33,8 +33,6 @@ class RegistrationActivityRepository(val application: Application) {
                     }
                     // Add username to Auth
                     firebaseAuth.currentUser!!.updateProfile(profileUpdates)
-                    //val intent = Intent(this,LoginActivity::class.java)
-                    //startActivity(intent)
 
                 }
                 else {
