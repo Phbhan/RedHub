@@ -86,11 +86,51 @@
 
         </FrameLayout>
 
-        <!-- Password Field -->
+        <!-- Username Field -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="370dp"
+            android:layout_marginStart="32dp">
+
+            <!-- Icon Person -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="38dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/base_icon" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="17.49dp"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/ic_person" />
+
+            </FrameLayout>
+
+            <!-- Username -->
+            <EditText
+                android:id="@+id/edtUsername"
+                android:inputType="textPersonName"
+                android:layout_width="260dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:paddingBottom="25dp"
+                android:hint="Username"
+                android:textColorHint="#C0C0C0"
+                android:textSize="18sp"
+                android:backgroundTint="#FFDAD8" />
+
+        </FrameLayout>
+
+        <!-- Password Field -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="460dp"
             android:layout_marginStart="32dp">
 
             <!-- Icon Lock -->
@@ -120,54 +160,6 @@
                 android:layout_marginStart="55dp"
                 android:paddingBottom="25dp"
                 android:hint="Password"
-                android:textColorHint="#C0C0C0"
-                android:textSize="18sp"
-                android:backgroundTint="#FFDAD8" />
-
-            <!-- Icon Visible -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="55dp"
-                app:passwordToggleEnabled="true">
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </FrameLayout>
-
-        <!-- Confirm Password Field -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="460dp"
-            android:layout_marginStart="32dp">
-
-            <!-- Icon Lock -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_lock" />
-
-            </FrameLayout>
-
-            <!-- Confirm Password -->
-            <EditText
-                android:id="@+id/confirm_password"
-                android:inputType="textPassword"
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="55dp"
-                android:paddingBottom="25dp"
-                android:hint="Confirm password"
                 android:textColorHint="#C0C0C0"
                 android:textSize="18sp"
                 android:backgroundTint="#FFDAD8"/>
