@@ -1,225 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".view.RegistrationActivity">
+    <EditText
+        android:id="@+id/edtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/edtPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/edtUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- Background -->
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/background" />
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Logo -->
-        <View
-            android:layout_width="190dp"
-            android:layout_height="106.88dp"
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/logo" />
-
-        <!-- Heading -->
-        <TextView
-            android:layout_width="209dp"
-            android:layout_height="53dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="160dp"
-            android:text="Welcome!"
-            android:textAppearance="@style/heading"
-            android:gravity="left" />
-
-        <!-- Subheading -->
-        <TextView
-            android:layout_width="203dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="220dp"
-            android:text="Sign up for free"
-            android:textAppearance="@style/subheading"
-            android:gravity="left" />
-
-        <!-- Email Field -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="280dp"
-            android:layout_marginLeft="32dp">
-
-            <!-- Icon Person -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_person" />
-
-            </FrameLayout>
-
-            <!-- Email -->
-            <EditText
-                android:id="@+id/edtEmail"
-                android:inputType="textEmailAddress"
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="55dp"
-                android:paddingBottom="25dp"
-                android:hint="Email"
-                android:textColorHint="#C0C0C0"
-                android:textSize="18sp"
-                android:backgroundTint="#FFDAD8" />
-
-        </FrameLayout>
-
-        <!-- Username Field -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="370dp"
-            android:layout_marginStart="32dp">
-
-            <!-- Icon Person -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_person" />
-
-            </FrameLayout>
-
-            <!-- Username -->
-            <EditText
-                android:id="@+id/edtUsername"
-                android:inputType="textPersonName"
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="55dp"
-                android:paddingBottom="25dp"
-                android:hint="Username"
-                android:textColorHint="#C0C0C0"
-                android:textSize="18sp"
-                android:backgroundTint="#FFDAD8" />
-
-        </FrameLayout>
-
-        <!-- Password Field -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="460dp"
-            android:layout_marginStart="32dp">
-
-            <!-- Icon Lock -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_lock" />
-
-            </FrameLayout>
-
-            <!-- Password -->
-            <EditText
-                android:id="@+id/edtPassword"
-                android:inputType="textPassword"
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="55dp"
-                android:paddingBottom="25dp"
-                android:hint="Password"
-                android:textColorHint="#C0C0C0"
-                android:textSize="18sp"
-                android:backgroundTint="#FFDAD8"/>
-
-            <!-- Icon Visible -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="55dp"
-                app:passwordToggleEnabled="true">
-
-            </com.google.android.material.textfield.TextInputLayout>
-        </FrameLayout>
-
-        <CheckBox
-            android:id="@+id/checkboxAgree"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="540dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:gravity="center"
-            android:text="I agree to the Terms of Services and Privacy Policy."
-            android:textColor="#FFDAD8" />
-
-        <!-- Create Button -->
-        <FrameLayout
-            android:id="@+id/btnRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="600dp"
-            android:layout_gravity="center_horizontal" >
-
-            <!-- Base -->
-            <ImageButton
-                android:layout_width="315dp"
-                android:layout_height="58dp"
-                android:background="@drawable/base_button"
-                android:alpha="0.8" />
-
-            <!-- Create account -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Create account"
-                android:textAppearance="@style/text_btn" />
-
-        </FrameLayout>
-
-        <!-- Sign In -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="675dp"
-            android:background="@android:color/transparent"
-            android:text="Already have an account? Sign In"
-            android:textAppearance="@style/content"
-            android:layout_gravity="center_horizontal" />
-
-    </FrameLayout>
-</LinearLayout>
+    <EditText
+        android:id="@+id/edtUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
