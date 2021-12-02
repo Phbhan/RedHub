@@ -14,6 +14,51 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHub">
         <activity
+            android:name=".ban.ReportReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ban.BanUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ban.BanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ban.BanReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".article.DeleteArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".article.EditArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".article.PostArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".article.ManageArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profile.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen.MainScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen.MoviesGroupByGenresActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen.TopMoviesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".mainscreen.ReadArticleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".auth.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />
         <activity
@@ -22,7 +67,6 @@
         <activity
             android:name=".profile.ViewProfileActivity"
             android:exported="true" />
-
         <activity
             android:name=".view.LoginActivity"
             android:exported="true">
