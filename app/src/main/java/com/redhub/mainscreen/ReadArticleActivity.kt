@@ -9,20 +9,21 @@ import com.google.firebase.database.FirebaseDatabase
 
 
 class ReadArticleActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityReadArticleBinding
-    private lateinit var database : DatabaseReference
+    private lateinit var binding: ActivityReadArticleBinding
+    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReadArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val articleId: String=""
-         readData(articleId)
+        val articleId: String = ""
+        readData(articleId)
     }
-    private fun readData(articleId:String){
+
+    private fun readData(articleId: String) {
         database = FirebaseDatabase.getInstance().getReference("Article")
         database.child(articleId).get().addOnSuccessListener {
-            if(it.exists()){
+            if (it.exists()) {
                 val title = it.child("title").value
                 val description = it.child("description").value
                 val release_date = it.child("release_date").value
@@ -35,16 +36,16 @@ class ReadArticleActivity : AppCompatActivity() {
                 val youtubeID = it.child("youtubeID").value
                 val review = it.child("review").value
 
-                Toast.makeText(this,"Successfuly Read", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Successfuly Read", Toast.LENGTH_SHORT).show()
                 //binding.etusername.text.clear()
-                binding.movieTitle.text=title.toString()
+                binding.movieTitle.text = title.toString()
 
 
             }
-        }.addOnFailureListener{
+        }.addOnFailureListener {
 
-            Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
-}
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+        }
 
-
+    }
 }
