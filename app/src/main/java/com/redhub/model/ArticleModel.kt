@@ -1,4 +1,4 @@
-package com.redhub
+package com.redhub.model
 
 //import android.net.Uri
 //import java.util.*

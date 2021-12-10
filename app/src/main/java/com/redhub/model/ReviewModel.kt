@@ -1,4 +1,4 @@
-package com.redhub
+package com.redhub.model
 
 data class ReviewModel (
     val user: UserModel,

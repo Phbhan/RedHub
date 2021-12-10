@@ -1,4 +1,4 @@
-package com.redhub.auth
+package com.redhub.controller.auth
 
 import android.content.ContentValues
 import android.content.Intent
@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.redhub.databinding.ActivityLoginBinding
-import com.redhub.profile.ViewProfileActivity
+import com.redhub.controller.profile.ViewProfileActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

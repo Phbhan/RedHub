@@ -1,4 +1,4 @@
-package com.redhub.profile
+package com.redhub.controller.profile
 
 import android.content.Intent
 import android.net.Uri

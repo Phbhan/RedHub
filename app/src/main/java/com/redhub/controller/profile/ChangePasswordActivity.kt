@@ -1,12 +1,12 @@
-package com.redhub.mainscreen
+package com.redhub.controller.profile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.redhub.R
 
-class TopMoviesActivity : AppCompatActivity() {
+class ChangePasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_top_movies)
+        setContentView(R.layout.activity_change_password)
     }
 }

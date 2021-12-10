@@ -1,4 +1,4 @@
-package com.redhub.auth
+package com.redhub.controller.auth
 
 import android.content.Intent
 import android.net.Uri
@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.redhub.UserModel
+import com.redhub.model.UserModel
 import com.redhub.databinding.ActivityRegistrationBinding
-import com.redhub.auth.LoginActivity
 
 class RegistrationActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth

@@ -14,58 +14,58 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHub">
         <activity
-            android:name=".ban.ReportReviewActivity"
+            android:name=".controller.ban.ReportReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ban.BanUserActivity"
+            android:name=".controller.ban.BanUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ban.BanActivity"
+            android:name=".controller.ban.BanActivity"
             android:exported="false" />
         <activity
-            android:name=".ban.BanReviewActivity"
+            android:name=".controller.ban.BanReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".article.DeleteArticleActivity"
+            android:name=".controller.article.DeleteArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".article.EditArticleActivity"
+            android:name=".controller.article.EditArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".article.PostArticleActivity"
+            android:name=".controller.article.PostArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".article.ManageArticleActivity"
+            android:name=".controller.article.ManageArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".profile.ChangePasswordActivity"
+            android:name=".controller.profile.ChangePasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.MainScreenActivity"
+            android:name=".controller.mainscreen.MainScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.SearchActivity"
+            android:name=".controller.mainscreen.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.MoviesGroupByGenresActivity"
+            android:name=".controller.mainscreen.MoviesGroupByGenresActivity"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.TopMoviesActivity"
+            android:name=".controller.mainscreen.TopMoviesActivity"
             android:exported="false" />
         <activity
-            android:name=".mainscreen.ReadArticleActivity"
+            android:name=".controller.mainscreen.ReadArticleActivity"
             android:exported="false" />
         <activity
-            android:name=".auth.ForgetPasswordActivity"
+            android:name=".controller.auth.ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".view.RegistrationActivity"
             android:exported="false" />
         <activity
-            android:name=".profile.EditProfileActivity"
+            android:name=".controller.profile.EditProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".profile.ViewProfileActivity"
+            android:name=".controller.profile.ViewProfileActivity"
             android:exported="true" />
         <activity
             android:name=".view.LoginActivity"

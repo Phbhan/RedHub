@@ -1,12 +1,12 @@
-package com.redhub.article
+package com.redhub.controller.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.redhub.R
 
-class PostArticleActivity : AppCompatActivity() {
+class ForgetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_post_article)
+        setContentView(R.layout.activity_forget_password)
     }
 }

@@ -1,4 +1,4 @@
-package com.redhub.mainscreen
+package com.redhub.controller.mainscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

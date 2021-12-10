@@ -1,26 +1,23 @@
-package com.redhub.mainscreen
+package com.redhub.controller.mainscreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
+//import com.firebase.ui.database.FirebaseRecyclerAdapter
+//import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.redhub.ArticleModel
-import com.redhub.R
 import com.redhub.databinding.ActivitySearchBinding
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.layout_list.view.*
+//import com.squareup.picasso.Picasso
+//import kotlinx.android.synthetic.main.layout_list.view.*
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
     private lateinit var database: DatabaseReference
-    lateinit var FirebaseRecyclerAdapter : FirebaseRecyclerAdapter<ArticleModel, ArticleViewHolder>
+    //lateinit var FirebaseRecyclerAdapter : FirebaseRecyclerAdapter<ArticleModel, ArticleViewHolder>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,14 +48,14 @@ class SearchActivity : AppCompatActivity() {
 
         if(searchText.isEmpty()){
 
-            binding.listView.adapter = FirebaseRecyclerAdapter
-
-        }else {
-
-
-                }
-
-            binding.listView.adapter = FirebaseRecyclerAdapter
+//            binding.listView.adapter = FirebaseRecyclerAdapter
+//
+//        }else {
+//
+//
+//                }
+//
+//            binding.listView.adapter = FirebaseRecyclerAdapter
 
         }
 

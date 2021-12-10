@@ -1,4 +1,4 @@
-package com.redhub.article
+package com.redhub.controller.article
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
