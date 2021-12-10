@@ -33,7 +33,13 @@
             android:exported="false" />
         <activity
             android:name=".controller.article.PostArticleActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".controller.article.ManageArticleActivity"
             android:exported="false" />
@@ -59,7 +65,7 @@
             android:name=".controller.auth.ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".view.RegistrationActivity"
+            android:name=".controller.auth.RegistrationActivity"
             android:exported="false" />
         <activity
             android:name=".controller.profile.EditProfileActivity"
@@ -68,14 +74,8 @@
             android:name=".controller.profile.ViewProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".view.LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".controller.auth.LoginActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true" />

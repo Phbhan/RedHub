@@ -46,7 +46,7 @@ class SearchActivity : AppCompatActivity() {
     }
     private fun loadFirebaseData(searchText : String) {
 
-        if(searchText.isEmpty()){
+        if (searchText.isEmpty()) {
 
 //            binding.listView.adapter = FirebaseRecyclerAdapter
 //
@@ -58,6 +58,7 @@ class SearchActivity : AppCompatActivity() {
 //            binding.listView.adapter = FirebaseRecyclerAdapter
 
         }
+    }
 
 // // View Holder Class
 
