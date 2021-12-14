@@ -1,166 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.LoginActivity">
+    android:background="@drawable/background"
+    tools:context=".controller.auth.LoginActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background" >
+    <!-- Logo -->
+    <ImageView
+        android:layout_width="190dp"
+        android:layout_height="106.88dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/logo" />
 
-        <!-- Logo -->
-        <View
-            android:layout_width="190dp"
-            android:layout_height="106.88dp"
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/logo" />
+    <!-- Heading -->
+    <TextView
+        android:id="@+id/tv_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:layout_marginStart="32dp"
+        android:text="Welcome!"
+        android:textAppearance="@style/heading"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Heading -->
-        <TextView
-            android:layout_width="209dp"
-            android:layout_height="53dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="180dp"
-            android:text="Welcome!"
-            android:textAppearance="@style/heading"
-            android:gravity="left" />
+    <!-- Subheading -->
+    <TextView
+        android:id="@+id/tv_subheading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Sign in to continue"
+        android:textAppearance="@style/subheading"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
 
-        <!-- Subheading -->
-        <TextView
-            android:layout_width="203dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="240dp"
-            android:text="Sign in to continue"
-            android:textAppearance="@style/subheading"
-            android:gravity="left" />
+    <!-- Email Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:hint="Email"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Email Field -->
-        <FrameLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtEmail"
+            android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="32dp">
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFDAD8"
+            android:textColor="#C0C0C0"
+            android:textSize="18sp" />
 
-            <!-- Icon Person -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+    </com.google.android.material.textfield.TextInputLayout>
 
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
+    <!-- Password Field -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="Password"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilEmail"
+        app:endIconMode="password_toggle">
 
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_person" />
-            </FrameLayout>
-
-            <!-- Email -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="55dp"
-                android:hint="Email"
-                android:textColorHint="#C0C0C0" >
-
-                <EditText
-                    android:id="@+id/edtEmail"
-                    android:inputType="textEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="18sp"
-                    android:textColor="#C0C0C0"
-                    android:backgroundTint="#FFDAD8"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </FrameLayout>
-
-        <!-- Password Field -->
-        <FrameLayout
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPassword"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="400dp"
-            android:layout_marginStart="32dp">
-
-            <!-- Icon Lock -->
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <View
-                    android:layout_width="38dp"
-                    android:layout_height="48dp"
-                    android:background="@drawable/base_icon" />
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="17.49dp"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:background="@drawable/ic_lock" />
-            </FrameLayout>
-
-            <!-- Password -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="260dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="55dp"
-                android:hint="Password"
-                android:textColorHint="#C0C0C0"
-                app:passwordToggleEnabled="true">
-
-                <EditText
-                    android:id="@+id/edtPassword"
-                    android:inputType="textPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textSize="18sp"
-                    android:textColor="#C0C0C0"
-                    android:backgroundTint="#FFDAD8"/>
-            </com.google.android.material.textfield.TextInputLayout>
-        </FrameLayout>
-
-        <!-- Sign In Button -->
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="315dp"
-            android:layout_height="58dp"
-            android:layout_marginTop="550dp"
-            android:layout_gravity="center_horizontal"
-            android:background="@drawable/base_button"
-            android:alpha="0.8"
-            android:text="Sign In"
-            android:textAppearance="@style/text_btn" />
-
-        <!-- Forgot password? -->
-        <Button
-            android:id="@+id/btnForgotPassword"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="630dp"
-            android:background="@android:color/transparent"
-            android:text="Forgot password?"
-            android:textAppearance="@style/content"
-            android:layout_gravity="center_horizontal" />
+            android:backgroundTint="#FFDAD8"
+            android:textColor="#C0C0C0"
+            android:textSize="18sp" />
 
-        <!-- Create account? -->
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="660dp"
-            android:background="@android:color/transparent"
-            android:text="Create an account?"
-            android:textAppearance="@style/content_red"
-            android:layout_gravity="center_horizontal" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </FrameLayout>
-</LinearLayout>
+    <!-- Login Button -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="315dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:text="Sign In"
+        android:textAppearance="@style/text_btn"
+        android:background="@drawable/red_button"
+        android:alpha="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
+
+    <!-- Forgot password? -->
+    <Button
+        android:id="@+id/btnForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Forgot password?"
+        android:textAppearance="@style/content"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <!-- Create account? -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create an account?"
+        android:textAppearance="@style/content_red"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnForgotPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
