@@ -4,41 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp">
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp" >
 
-    <EditText
-        android:id="@+id/et_name_star"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:hint="Enter star name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/et_role_star"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:hint="Enter role"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name_star" />
-
-    <Button
-        android:id="@+id/btn_delete_star"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+    <!-- Image Actor -->
     <ImageView
         android:id="@+id/iv_star"
-        android:layout_width="104dp"
-        android:layout_height="95dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <!-- Name Actor -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNameActor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter actor name"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toEndOf="@id/iv_star"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_name_star"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFDAD8"
+            android:inputType="text"
+            android:textColor="#C0C0C0"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Role Actor -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRoleActor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:hint="Enter role"
+        android:textColorHint="#C0C0C0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintStart_toEndOf="@id/iv_star"
+        app:layout_constraintTop_toBottomOf="@id/tilNameActor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_role_star"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFDAD8"
+            android:inputType="text"
+            android:textColor="#C0C0C0"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Button delete actor-->
+    <Button
+        android:id="@+id/btn_delete_star"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:alpha="0.8"
+        android:background="@drawable/gray_button"
+        android:text="Delete"
+        android:textAppearance="@style/text_btn_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.900"
+        app:layout_constraintStart_toEndOf="@+id/iv_star"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
