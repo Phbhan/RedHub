@@ -51,6 +51,8 @@ class RegistrationActivity : AppCompatActivity() {
 
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
+
+
                     } else {
                         Toast.makeText(baseContext, "Authentication failed.",
                             Toast.LENGTH_SHORT).show()
@@ -58,5 +60,10 @@ class RegistrationActivity : AppCompatActivity() {
                 }
 
         }
+        binding.btnLogin.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

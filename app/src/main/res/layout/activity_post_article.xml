@@ -62,16 +62,18 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_title">
+        app:layout_constraintTop_toBottomOf="@id/header_title" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="200dp"
             app:layout_constraintEnd_toEndOf="@id/scrollView"
             app:layout_constraintStart_toStartOf="@id/scrollView"
-            app:layout_constraintTop_toTopOf="@id/scrollView">
+            app:layout_constraintTop_toTopOf="@id/scrollView" >
 
             <!-- Poster Movie -->
             <ImageView
@@ -146,6 +148,30 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Description -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDescription"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Description"
+                android:textColorHint="#C0C0C0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilReleaseDate" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_descrip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFDAD8"
+                    android:inputType="textMultiLine"
+                    android:textColor="#C0C0C0"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <!-- Genre tags -->
             <TextView
                 android:id="@+id/tv_genre"
@@ -158,7 +184,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tilReleaseDate" />
+                app:layout_constraintTop_toBottomOf="@+id/tilDescription" />
 
             <!-- Directors -->
             <TextView
@@ -234,30 +260,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_star"
                 tools:layout_editor_absoluteX="0dp" />
 
-            <!-- Description -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilDescription"
-                android:layout_width="360dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Description"
-                android:textColorHint="#C0C0C0"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/parent_linear_layout_star">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/et_descrip"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FFDAD8"
-                    android:inputType="textMultiLine"
-                    android:textColor="#C0C0C0"
-                    android:textSize="18sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
             <!-- Trailer Youtube -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTrailerYoutube"
@@ -269,7 +271,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.146"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tilDescription">
+                app:layout_constraintTop_toBottomOf="@id/parent_linear_layout_star">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_yt_id"
@@ -281,7 +283,6 @@
                     android:textSize="18sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
-
             <!-- Button Add Youtube ID-->
             <Button
                 android:id="@+id/btn_add_ytid"
@@ -295,8 +296,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.55"
                 app:layout_constraintStart_toEndOf="@+id/tilTrailerYoutube"
-                app:layout_constraintTop_toBottomOf="@+id/tilDescription" />
-
+                app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_star" />
             <!-- Video Youtube -->
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/ytplayer"

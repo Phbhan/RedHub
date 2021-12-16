@@ -33,13 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".controller.article.PostArticleActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".controller.article.ManageArticleActivity"
             android:exported="false" />
@@ -66,7 +60,14 @@
             android:exported="false" />
         <activity
             android:name=".controller.auth.RegistrationActivity"
-            android:exported="false" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".controller.profile.EditProfileActivity"
             android:exported="true" />
