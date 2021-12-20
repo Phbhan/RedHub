@@ -5,6 +5,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
@@ -13,6 +14,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
+import com.google.android.gms.tasks.Tasks
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -42,6 +45,7 @@ class PostArticleActivity : AppCompatActivity() {
     lateinit var ytID: String
 
     private val storage = FirebaseStorage.getInstance()
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityPostArticleBinding.inflate(layoutInflater)
@@ -147,10 +151,13 @@ class PostArticleActivity : AppCompatActivity() {
             {
                 val stars = getStar(binding)
                 posterUri = uploadImageToFirebase(Uri.parse(posterUri), "poster")
-                val article = ArticleModel(title, releasedDate, genres, description, youtubeID, directors, stars,posterUri, 0, 0)
+                //val article = ArticleModel(title, releasedDate, genres, description, youtubeID, directors, stars,posterUri, 0, 0)
 
-                val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
-                val myRef = database.getReference("article")
+//                val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
+//                val myRef = database.getReference("article")
+
+                database = Firebase.database.reference
+                val myRef = database.child("article")
                 val articleId: String? = myRef.push().key
                 if (articleId != null) {
                     myRef.child(articleId).child("rate").setValue(0)
@@ -171,7 +178,19 @@ class PostArticleActivity : AppCompatActivity() {
                     myRef.child(articleId).child("releasedDate").setValue(releasedDate)
                     myRef.child(articleId).child("title").setValue(title)
                 }
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("Do you want to back to Manage article?")
+                builder.setPositiveButton("OK"){ _, _ ->
+                    val intent = Intent(this,ManageArticleActivity::class.java)
+                    startActivity(intent)
+                }
+                builder.setNeutralButton("Cancel"){ dialog, _ ->
+                    dialog.dismiss()
+                }
+                val dialog = builder.create()
+                dialog.show()
             }
+
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -197,18 +216,30 @@ class PostArticleActivity : AppCompatActivity() {
     }
     private fun uploadImageToFirebase(imageUri: Uri?, role: String): String {
         val fileName = UUID.randomUUID().toString() + ".jpg"
-        var path = "gs://test-c9095.appspot.com"
+        var path = "gs://redhub-a0b58.appspot.com"
         var refStorage = storage.reference
         if(role == "star"){
             refStorage = refStorage.child("/Star/$fileName")
+            var uploadTask  = refStorage.putFile(imageUri!!)
+            uploadTask.addOnFailureListener {
+                uploadTask.resume()
+                Log.d("Han", "Upload image fail")
+            }.addOnSuccessListener { _ ->
+                Log.d("Han", "Upload image success")
+            }
             path = "$path/Star/$fileName"
         }
-        if(role == "poster")
-        {
+        if(role == "poster"){
             refStorage = refStorage.child("/Poster/$fileName")
+            var uploadTask  = refStorage.putFile(imageUri!!)
+            uploadTask.addOnFailureListener {
+                uploadTask.resume()
+                Log.d("Han", "Upload image fail")
+            }.addOnSuccessListener { _ ->
+                Log.d("Han", "Upload image success")
+            }
             path = "$path/Poster/$fileName"
         }
-        refStorage.putFile(imageUri!!)
         return path
     }
     private fun getDirector(binding: ActivityPostArticleBinding): ArrayList<DirectorModel> {

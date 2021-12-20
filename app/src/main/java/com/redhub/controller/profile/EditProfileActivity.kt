@@ -81,12 +81,12 @@ class EditProfileActivity : AppCompatActivity() {
 
         val fileName = UUID.randomUUID().toString() + ".jpg"
 
-        val refStorage = storage.reference.child("/Avatar/$fileName")
+        val refStorage = storage.reference.child("/avatar/$fileName")
 
         refStorage.putFile(imageUri!!)
             .addOnSuccessListener {
                 val profileUpdates = userProfileChangeRequest {
-                    photoUri = Uri.parse("gs://test-c9095.appspot.com" + "/Avatar/$fileName")
+                    photoUri = Uri.parse("gs://redhub-a0b58.appspot.com" + "/avatar/$fileName")
                 }
                 user!!.updateProfile(profileUpdates)
                 Toast.makeText(baseContext, "Image uploaded",
