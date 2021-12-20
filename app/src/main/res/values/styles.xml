@@ -15,6 +15,11 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
+    <style name="text_btn_gray">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#E61610</item>
+    </style>
+
     <style name="content">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#C0C0C0</item>
@@ -23,6 +28,11 @@
     <style name="content_red">
         <item name="android:textSize">15sp</item>
         <item name="android:textColor">#FF5D55</item>
+    </style>
+
+    <style name="header_title">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFDAD8</item>
     </style>
 
 </resources>

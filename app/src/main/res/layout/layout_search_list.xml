@@ -21,9 +21,18 @@
         android:layout_alignTop="@+id/ArticleImageView"
         android:layout_marginStart="40dp"
         android:layout_toEndOf="@+id/ArticleImageView"
-        android:text="UserName"
+        android:text="Title: "
         android:textSize="18sp" />
 
+    <TextView
+        android:id="@+id/movie_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/movie_title"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/movie_title"
+        android:text="Rate: "
+        android:textSize="18sp" />
 
 
 </RelativeLayout>

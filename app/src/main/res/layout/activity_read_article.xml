@@ -160,52 +160,19 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_margin="10sp"
+                        android:id="@+id/recyclerview_director"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_height="match_parent"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Director: "
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:id="@+id/movie_director"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Sam"
-                            android:textSize="12sp"/>
-
-                    </LinearLayout>
-
-
-                    <LinearLayout
+                    <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Star: "
-                            android:textSize="12sp"
-                            android:textStyle="bold"/>
-
-                        <TextView
-                            android:id="@+id/movie_star"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="Jenny"
-                            android:textSize="12sp"/>
-
-                    </LinearLayout>
+                        android:layout_margin="10sp"
+                        android:id="@+id/recyclerview_star"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:layout_height="match_parent"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -239,17 +206,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Youtube: "
+                            android:text="Trailer: "
                             android:textSize="12sp"
                             android:textStyle="bold"/>
 
-                        <TextView
-                            android:id="@+id/movie_youtubeId"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="link youtube..."
-                            android:textSize="12sp"/>
+
 
                     </LinearLayout>
                     <Button

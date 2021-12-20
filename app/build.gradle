@@ -84,5 +84,11 @@ dependencies {
 
     //Youtube
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    
+    //Recyclerview
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
