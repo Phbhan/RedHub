@@ -19,6 +19,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
+import com.redhub.controller.article.EditArticleActivity
 import com.redhub.controller.profile.EditProfileActivity
 import com.redhub.databinding.ActivityManageArticleBinding
 import com.redhub.databinding.ActivityPostArticleBinding
@@ -28,10 +29,10 @@ import com.redhub.model.BriefArticleModel
 
 class ManageArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityManageArticleBinding
-    private lateinit var title: String
     private val storage = FirebaseStorage.getInstance()
     private lateinit var articleListener: ValueEventListener
     private lateinit var myRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityManageArticleBinding.inflate(layoutInflater)
@@ -47,11 +48,6 @@ class ManageArticleActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        myRef.removeEventListener(articleListener)
-//    }
     private fun addArticleRow(article: BriefArticleModel, articleID: String)
     {
         val inflater = LayoutInflater.from(this).inflate(R.layout.article_manage_row, null)
@@ -62,8 +58,8 @@ class ManageArticleActivity : AppCompatActivity() {
         tv_rate.text = article.rates.toString()
         val iv_poster = inflater.findViewById<ImageView>(R.id.iv_poster)
 
-        val avatar = storage.getReferenceFromUrl(article.posterUri)
-        avatar.downloadUrl.addOnSuccessListener { uri ->
+        val poster = storage.getReferenceFromUrl(article.posterUri)
+        poster.downloadUrl.addOnSuccessListener { uri ->
             //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
             Glide.with(this)
                 .load(uri.toString())
@@ -80,7 +76,6 @@ class ManageArticleActivity : AppCompatActivity() {
                 val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
                 val myRef = database.getReference("article")
                 myRef.child(articleID).removeValue()
-                binding.parentLinearLayoutArticle.removeAllViews()
             }
             builder.setNeutralButton("Cancel"){ dialog, _ ->
                 dialog.dismiss()
@@ -88,11 +83,19 @@ class ManageArticleActivity : AppCompatActivity() {
             val dialog = builder.create()
             dialog.show()
         }
+        val btn_edit = inflater.findViewById<Button>(R.id.btn_edit_article)
+        btn_edit.setOnClickListener {
+            val intent = Intent(this, EditArticleActivity::class.java)
+            intent.putExtra("articleID",articleID)
+            myRef.removeEventListener(articleListener)
+            startActivity(intent)
+        }
     }
     private fun addArticleEventListener(articleReference: DatabaseReference) {
         // [START post_value_event_listener]
         articleListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                binding.parentLinearLayoutArticle.removeAllViews()
                 for (articleSnapshot in dataSnapshot.getChildren()) {
                     val title = articleSnapshot.child("title").getValue().toString()
                     val posterUri = articleSnapshot.child("posterUri").getValue().toString()

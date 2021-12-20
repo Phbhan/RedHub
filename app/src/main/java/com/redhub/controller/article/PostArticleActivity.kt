@@ -28,6 +28,7 @@ import com.redhub.model.DirectorModel
 import com.redhub.model.StarModel
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.properties.Delegates
 
 class PostArticleActivity : AppCompatActivity() {
     private var genres = arrayOf("Action", "Adventure", "Comedy", "Crime", "Drama", "Fantasy", "Historical", "Horror", "Mystery", "Romance", "Science fiction", "Thriller")
@@ -40,6 +41,7 @@ class PostArticleActivity : AppCompatActivity() {
     lateinit var iv_poster: ImageView
     private var imageUri: Uri? = null
     private val starUriList = ArrayList<String>()
+    private var idx_starUri by Delegates.notNull<Int>()
     lateinit var posterUri: String
 
     lateinit var ytID: String
@@ -100,12 +102,14 @@ class PostArticleActivity : AppCompatActivity() {
                 binding.parentLinearLayoutStar.removeView(inflater)
             }
 
-            iv_star = inflater.findViewById<ImageView>(R.id.iv_star)
+            val iv_star_i = inflater.findViewById<ImageView>(R.id.iv_star)
             Glide.with(this)
                 .load(R.drawable.default_avatar)
-                .into(iv_star)
-            iv_star.setOnClickListener {
+                .into(iv_star_i)
+            iv_star_i.setOnClickListener {
                 val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                idx_starUri  = binding.parentLinearLayoutStar.indexOfChild(inflater)
+                iv_star = iv_star_i
                 startActivityForResult(gallery, pickImage_star)
             }
         }
@@ -202,7 +206,13 @@ class PostArticleActivity : AppCompatActivity() {
                 Glide.with(this)
                     .load(imageUri)
                     .into(iv_star)
-                starUriList.add(imageUri.toString())
+                //starUriList.add(imageUri.toString())
+                if (idx_starUri == starUriList.size) {
+                    starUriList.add(imageUri.toString())
+                }else
+                {
+                    starUriList[idx_starUri] = imageUri.toString()
+                }
             }
             if(requestCode == pickImage_poster) {
                 iv_poster.setImageURI(imageUri)

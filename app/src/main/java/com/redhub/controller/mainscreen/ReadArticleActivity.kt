@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.google.firebase.database.*
+import com.redhub.R
 import com.redhub.databinding.ActivityReadArticleBinding
 import com.redhub.model.DirectorModel
 import com.redhub.model.StarModel
@@ -49,7 +51,11 @@ class ReadArticleActivity : AppCompatActivity() {
                 binding.movieGerne.text = gerne.toString()
                 binding.movieNumRate.text=num_rate.toString()
                 binding.movieRating.text = rate.toString()
-                binding.ivMoviePoster.setImageURI(Uri.parse(poster.toString()))
+                //binding.ivMoviePoster.setImageURI(Uri.parse(poster.toString()))
+                Glide.with(this)
+                    .load(Uri.parse(poster.toString()))
+                    .into(binding.ivMoviePoster)
+
                 readDirectorsList()
                 readStarList()
 
