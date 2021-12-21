@@ -4,27 +4,19 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
-import com.redhub.controller.article.EditArticleActivity
-import com.redhub.controller.profile.EditProfileActivity
 import com.redhub.databinding.ActivityManageArticleBinding
-import com.redhub.databinding.ActivityPostArticleBinding
-import com.redhub.databinding.ActivityReadArticleBinding
-import com.redhub.model.ArticleModel
 import com.redhub.model.BriefArticleModel
 
 class ManageArticleActivity : AppCompatActivity() {

@@ -98,7 +98,7 @@ class PostArticleActivity : AppCompatActivity() {
             val btnDelete = inflater.findViewById<Button>(R.id.btn_delete_star)
             btnDelete.setOnClickListener {
                 val index = binding.parentLinearLayoutStar.indexOfChild(inflater)
-                starUriList.removeAt(index)
+                if(starUriList.size > index) starUriList.removeAt(index)
                 binding.parentLinearLayoutStar.removeView(inflater)
             }
 

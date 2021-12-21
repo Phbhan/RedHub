@@ -14,9 +14,8 @@
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="0dp"
+        android:layout_width="190dp"
         android:layout_height="40dp"
-        app:layout_constraintEnd_toStartOf="@id/btn_edit_article"
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
@@ -27,21 +26,4 @@
         app:layout_constraintStart_toEndOf="@+id/iv_poster"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <Button
-        android:id="@+id/btn_edit_article"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Edit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_delete_article"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_delete_article"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="Delete"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
