@@ -43,13 +43,8 @@
             android:exported="false" />
         <activity
             android:name=".controller.mainscreen.MainScreenActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".controller.mainscreen.SearchActivity"
             android:exported="false" />
@@ -67,7 +62,13 @@
             android:exported="false" />
         <activity
             android:name=".controller.auth.RegistrationActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
 
         <activity

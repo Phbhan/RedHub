@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.redhub.controller.mainscreen.MainScreenActivity
 import com.redhub.databinding.ActivityLoginBinding
 import com.redhub.controller.profile.ViewProfileActivity
 
@@ -51,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "signInWithEmail:success")
                     val user = auth.currentUser
-                    val intent = Intent(this, ViewProfileActivity::class.java)
+                    val intent = Intent(this, MainScreenActivity::class.java)
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
