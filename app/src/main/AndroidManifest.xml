@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHub">
         <activity
+            android:name=".controller.mainscreen.ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.mainscreen.ReadReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".controller.review.PostReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".controller.ban.ReportReviewActivity"
             android:exported="false" />
         <activity
@@ -34,7 +43,6 @@
         <activity
             android:name=".controller.article.PostArticleActivity"
             android:exported="true" />
-
         <activity
             android:name=".controller.article.ManageArticleActivity"
             android:exported="false" />
@@ -62,6 +70,7 @@
             android:exported="false" />
         <activity
             android:name=".controller.auth.RegistrationActivity"
+<<<<<<< Updated upstream
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -71,20 +80,28 @@
         </activity>
 
 
+=======
+            android:exported="true" />
+>>>>>>> Stashed changes
         <activity
             android:name=".controller.profile.EditProfileActivity"
             android:exported="true" />
-
         <activity
             android:name=".controller.profile.ViewProfileActivity"
             android:exported="true" />
 
         <activity
             android:name=".controller.auth.LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
+<<<<<<< Updated upstream
             android:exported="true" />
+=======
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+>>>>>>> Stashed changes
 
     </application>
 

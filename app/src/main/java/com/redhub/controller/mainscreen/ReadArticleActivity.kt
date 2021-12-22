@@ -39,7 +39,7 @@ class ReadArticleActivity : AppCompatActivity() {
                 val rate = it.child("rate").value
                 val poster = it.child("posterUri").value
                 val youtubeID = it.child("youtubeID").value
-                //val review = it.child("review").value
+
 
 
 
