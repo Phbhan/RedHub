@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -18,6 +19,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
 import com.redhub.controller.article.EditArticleActivity
+import com.redhub.controller.article.ManageArticleActivity
+import com.redhub.controller.profile.ViewProfileActivity
 import com.redhub.databinding.ActivityMainScreenBinding
 import com.redhub.model.BriefArticleModel
 
@@ -34,6 +37,9 @@ class MainScreenActivity : AppCompatActivity() {
         val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
         myRef = database.getReference("article")
         addArticleEventListener(myRef)
+
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener(navigasjonen)
     }
     private fun addArticleRow(article: BriefArticleModel, articleID: String)
     {
@@ -85,5 +91,32 @@ class MainScreenActivity : AppCompatActivity() {
         }
         articleReference.addValueEventListener(articleListener)
         // [END post_value_event_listener]
+    }
+
+    private val navigasjonen = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.ic_home -> {
+                return@OnNavigationItemSelectedListener false
+            }
+
+            R.id.ic_profile -> {
+                val intent = Intent(this@MainScreenActivity, ViewProfileActivity::class.java)
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener true
+            }
+            R.id.ic_save -> {
+                val intent = Intent(this@MainScreenActivity, ManageArticleActivity::class.java)
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener false
+            }
+            R.id.ic_search -> {
+                val intent = Intent(this@MainScreenActivity, SearchActivity::class.java)
+                startActivity(intent)
+                return@OnNavigationItemSelectedListener false
+            }
+
+        }
+        false
+
     }
 }
