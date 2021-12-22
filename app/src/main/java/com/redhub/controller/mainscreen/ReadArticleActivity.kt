@@ -21,7 +21,7 @@ class ReadArticleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityReadArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val articleId: String = ""
+        val articleId: String = ""//Nhan articleId
         database = FirebaseDatabase.getInstance().getReference("Article")
         readData(articleId)
 
