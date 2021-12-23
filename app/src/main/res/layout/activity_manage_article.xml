@@ -12,7 +12,7 @@
         <LinearLayout
             android:id="@+id/parent_linear_layout_article"
             android:layout_width="match_parent"
-            android:layout_height="650dp"
+            android:layout_height="700dp"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,6 +26,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_article" />
+            app:layout_constraintBottom_toBottomOf="@+id/parent_linear_layout_article" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#AF1414"
+            app:itemIconTint="#ffff"
+            app:itemTextColor="#ffff"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_article"
+            app:menu="@menu/menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".controller.mainscreen.SearchActivity">
 
+
     <EditText
         android:id="@+id/searchText"
         android:layout_width="300dp"
@@ -22,9 +23,17 @@
         android:id="@+id/list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/searchText"
         android:layout_marginTop="14dp" />
 
-
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu"
+        android:background="#AF1414"
+        app:itemIconTint="#ffff"
+        app:itemTextColor="#ffff"
+        />
 </RelativeLayout>

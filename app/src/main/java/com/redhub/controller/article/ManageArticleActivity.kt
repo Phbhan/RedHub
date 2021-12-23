@@ -9,13 +9,19 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
+import com.redhub.controller.mainscreen.MainScreenActivity
+import com.redhub.controller.mainscreen.SearchActivity
+import com.redhub.controller.profile.ViewProfileActivity
 import com.redhub.databinding.ActivityManageArticleBinding
 import com.redhub.model.BriefArticleModel
 
@@ -24,7 +30,12 @@ class ManageArticleActivity : AppCompatActivity() {
     private val storage = FirebaseStorage.getInstance()
     private lateinit var articleListener: ValueEventListener
     private lateinit var myRef: DatabaseReference
+    private val user = Firebase.auth.currentUser
 
+    var dataAdmin: DatabaseReference
+    init{
+        dataAdmin = FirebaseDatabase.getInstance().reference
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityManageArticleBinding.inflate(layoutInflater)
@@ -39,6 +50,8 @@ class ManageArticleActivity : AppCompatActivity() {
             val intent = Intent(this,PostArticleActivity::class.java)
             startActivity(intent)
         }
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener(navigasjonen)
     }
     private fun addArticleRow(article: BriefArticleModel, articleID: String)
     {
@@ -106,5 +119,46 @@ class ManageArticleActivity : AppCompatActivity() {
         articleReference.addValueEventListener(articleListener)
         // [END post_value_event_listener]
     }
+    private val navigasjonen = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.ic_home -> {
+                val intent = Intent(this@ManageArticleActivity, MainScreenActivity::class.java)
+                startActivity(intent)
 
+            }
+
+            R.id.ic_profile -> {
+                val intent = Intent(this@ManageArticleActivity, ViewProfileActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.ic_save -> {
+                var adminValue: String
+                var authNow: String
+
+                dataAdmin.child("admin_account").addValueEventListener(object: ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var adminValue = snapshot.getValue().toString()
+                        user?.let {
+                            authNow = user.email.toString()
+                            if (adminValue.compareTo(authNow) == 0) {
+                            } else {
+                                Toast.makeText(baseContext, "This feature is for admin only",
+                                    Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
+            }
+            R.id.ic_search -> {
+                val intent = Intent(this@ManageArticleActivity, SearchActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+        false
+
+    }
 }
