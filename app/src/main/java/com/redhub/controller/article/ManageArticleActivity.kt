@@ -158,7 +158,7 @@ class ManageArticleActivity : AppCompatActivity() {
             }
 
         }
-        false
+        true
 
     }
 }

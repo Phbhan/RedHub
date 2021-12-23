@@ -58,7 +58,6 @@ class ViewProfileActivity : AppCompatActivity() {
             R.id.ic_home -> {
                 val intent = Intent(this@ViewProfileActivity, MainScreenActivity::class.java)
                 startActivity(intent)
-
             }
 
             R.id.ic_profile -> {
@@ -96,7 +95,7 @@ class ViewProfileActivity : AppCompatActivity() {
             }
 
         }
-        false
+        true
 
     }
 }

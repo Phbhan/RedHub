@@ -55,5 +55,6 @@
         android:background="#AF1414"
         app:itemIconTint="#ffff"
         app:itemTextColor="#ffff"
+        app:labelVisibilityMode="unlabeled"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

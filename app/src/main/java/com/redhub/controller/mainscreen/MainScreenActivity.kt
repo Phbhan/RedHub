@@ -144,7 +144,7 @@ class MainScreenActivity : AppCompatActivity() {
             }
 
         }
-        false
+        true
 
     }
 }
