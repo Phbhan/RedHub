@@ -75,7 +75,7 @@ class SearchActivity : AppCompatActivity() {
 
     }
 }
-
+//Chưa chọn được item, chưa truyền được articleId
 
 
 

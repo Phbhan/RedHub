@@ -1,5 +1,6 @@
 package com.redhub.controller.mainscreen
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,7 +25,11 @@ class ReadArticleActivity : AppCompatActivity() {
         val articleId: String = ""//Nhan articleId
         database = FirebaseDatabase.getInstance().getReference("Article")
         readData(articleId)
-
+        binding.movieReviewBtn.setOnClickListener {
+            val intent: Intent = Intent(applicationContext,ReviewActivity::class.java)
+            intent.putExtra("articleId",articleId)
+            startActivity(intent)
+        }
     }
 
     private fun readData(articleId: String) {
@@ -116,3 +121,4 @@ class ReadArticleActivity : AppCompatActivity() {
         })
     }
 }
+//Chưa nhận được articleId

@@ -18,12 +18,20 @@ class ReviewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        val articleId: String = ""//Nhan articleId
+        val intent = intent
+        val articleId:String = intent.getStringExtra("articleId").toString()
         database = FirebaseDatabase.getInstance().getReference("Article")
         readReview(articleId)
 
         val user=FirebaseAuth.getInstance().currentUser
         val username = user?.displayName
+        binding.currentuserName.text=username
+
+        binding.addReviewBtn.setOnClickListener {
+
+                saveReview(articleId)
+
+        }
     }
     private fun readReview(articleId: String)
     {
@@ -59,4 +67,37 @@ class ReviewActivity : AppCompatActivity() {
 
         })
     }
+
+    private fun saveReview(articleId:String)
+    {
+        val current_user_name = FirebaseAuth.getInstance().currentUser?.displayName
+        val review_content = binding.postReview.text.toString().trim()
+
+        if(review_content.isEmpty()) {
+            binding.postReview.error = "Please enter review"
+            return
+        }
+
+        val reviewId = database.child(articleId).child("review").push().key
+
+        val review = reviewId?.let{
+            if (current_user_name != null) {
+                ReviewModel(it,current_user_name,review_content)
+            }
+        }
+
+        if(reviewId != null)
+        {
+            database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
+                binding.postReview.text.clear()
+
+                Toast.makeText(this,"Successfully!",Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener{
+                Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+            }
+
+        }
+
+    }
 }
+//Chưa like, dislike
