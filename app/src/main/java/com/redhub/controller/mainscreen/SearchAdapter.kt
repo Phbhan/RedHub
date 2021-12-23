@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.redhub.R
 import com.redhub.model.ArticleModel
@@ -18,6 +19,9 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
         val title = itemView.movie_title
         val rate = itemView.movie_rate
         val imguri : ImageView=itemView.ArticleImageView
+
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -30,9 +34,11 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
         Picasso.get()
             .load(list_search[position].posterUri)
             .into(holder.imguri)
+
     }
 
     override fun getItemCount(): Int {
         return list_search.size
     }
+
 }

@@ -29,9 +29,7 @@
         android:layout_marginLeft="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/currentuser_img"
-        app:layout_constraintStart_toEndOf="@+id/currentuser_img"
-        app:layout_constraintTop_toTopOf="@+id/currentuser_img" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/add_review_btn"
