@@ -8,13 +8,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
@@ -30,6 +31,13 @@ class MainScreenActivity : AppCompatActivity() {
     private lateinit var articleListener: ValueEventListener
     private lateinit var myRef: DatabaseReference
 
+    private val user = Firebase.auth.currentUser
+
+    var dataAdmin: DatabaseReference
+    init{
+        dataAdmin = FirebaseDatabase.getInstance().reference
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainScreenBinding.inflate(layoutInflater)
@@ -37,6 +45,7 @@ class MainScreenActivity : AppCompatActivity() {
         val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
         myRef = database.getReference("article")
         addArticleEventListener(myRef)
+
 
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
         bottomNavigation.setOnNavigationItemSelectedListener(navigasjonen)
@@ -102,17 +111,36 @@ class MainScreenActivity : AppCompatActivity() {
             R.id.ic_profile -> {
                 val intent = Intent(this@MainScreenActivity, ViewProfileActivity::class.java)
                 startActivity(intent)
-                return@OnNavigationItemSelectedListener true
             }
             R.id.ic_save -> {
-                val intent = Intent(this@MainScreenActivity, ManageArticleActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener false
+                var adminValue: String
+                var authNow: String
+
+                dataAdmin.child("admin_account").addValueEventListener(object: ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        var adminValue = snapshot.getValue().toString()
+                        user?.let {
+                            authNow = user.email.toString()
+                            if (adminValue.compareTo(authNow) == 0) {
+                                val intent = Intent(
+                                    this@MainScreenActivity,
+                                    ManageArticleActivity::class.java
+                                )
+                                startActivity(intent)
+                            } else {
+                                Toast.makeText(baseContext, "This feature is for admin only",
+                                    Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        TODO("Not yet implemented")
+                    }
+                })
             }
             R.id.ic_search -> {
                 val intent = Intent(this@MainScreenActivity, SearchActivity::class.java)
                 startActivity(intent)
-                return@OnNavigationItemSelectedListener false
             }
 
         }

@@ -17,35 +17,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val navigasjonen = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.ic_home -> {
-                val intent = Intent(this@MainActivity, MainScreenActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-
-            R.id.ic_profile -> {
-                val intent = Intent(this@MainActivity, ViewProfileActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.ic_search -> {
-                val intent = Intent(this@MainActivity, SearchActivity::class.java)
-                startActivity(intent)
-                return@OnNavigationItemSelectedListener false
-            }
-
-        }
-        false
-
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNavigation.setOnNavigationItemSelectedListener(navigasjonen)
     }
 
 
