@@ -8,4 +8,8 @@
     <string name="movie_description">In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.</string>
     <string name="username">Username</string>
     <string name="email">user_123@email.com</string>
+    <string name="user_fullname">Userfn Userln</string>
+    <string name="user_dob">01/01/2001</string>
+    <string name="user_gender">male</string>
+    <string name="user_phone">0123456789</string>
 </resources>
