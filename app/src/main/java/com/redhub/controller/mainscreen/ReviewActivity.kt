@@ -91,7 +91,7 @@ class ReviewActivity : AppCompatActivity() {
             database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
                 binding.postReview.text.clear()
 
-                Toast.makeText(this,"Successfully!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Success!",Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{
                 Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
             }
