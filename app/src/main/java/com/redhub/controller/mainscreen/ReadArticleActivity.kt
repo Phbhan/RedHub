@@ -39,7 +39,7 @@ class ReadArticleActivity : AppCompatActivity() {
                 val title = it.child("title").value
                 val description = it.child("description").value
                 val release_date = it.child("release_date").value
-                val gerne = it.child("gerne").value
+                val genre = it.child("genre").value
                 val num_rate = it.child("num_rate").value
                 val rate = it.child("rate").value
                 val poster = it.child("posterUri").value
@@ -53,7 +53,7 @@ class ReadArticleActivity : AppCompatActivity() {
                 binding.movieTitle.text = title.toString()
                 binding.movieDescription.text = description.toString()
                 binding.movieReleaseDate.text= release_date.toString()
-                binding.movieGerne.text = gerne.toString()
+                binding.movieGenre.text = genre.toString()
                 binding.movieNumRate.text=num_rate.toString()
                 binding.movieRating.text = rate.toString()
                 //binding.ivMoviePoster.setImageURI(Uri.parse(poster.toString()))

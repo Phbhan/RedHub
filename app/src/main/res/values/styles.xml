@@ -35,4 +35,9 @@
         <item name="android:textColor">#FFDAD8</item>
     </style>
 
+    <style name="movie_rate">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#FEAD1D</item>
+    </style>
+
 </resources>

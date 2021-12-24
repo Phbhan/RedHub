@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RedHub</string>
+    <string name="movie_title">Joker</string>
+    <string name="release_year">2019</string>
+    <string name="movie_genre">#crime #drama</string>
+    <string name="movie_rate">4.2</string>
+    <string name="num_rate">4/5 star</string>
+    <string name="movie_description">In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.</string>
 </resources>
