@@ -5,8 +5,10 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.google.android.youtube.player.YouTubeStandalonePlayer
 import com.google.firebase.database.*
 import com.redhub.R
 import com.redhub.databinding.ActivityReadArticleBinding
@@ -17,12 +19,16 @@ import com.redhub.model.StarModel
 class ReadArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadArticleBinding
     private lateinit var database: DatabaseReference
+    val API_KEY = "AIzaSyAaTr_lxJuA81nwNG6Rg4Qht_wUihDCpb4"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReadArticleBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val articleId: String = ""//Nhan articleId
+
+        val intent = intent
+        val articleId:String = intent.getStringExtra("articleId").toString()
+
         database = FirebaseDatabase.getInstance().getReference("Article")
         readData(articleId)
         binding.movieReviewBtn.setOnClickListener {
@@ -30,6 +36,7 @@ class ReadArticleActivity : AppCompatActivity() {
             intent.putExtra("articleId",articleId)
             startActivity(intent)
         }
+
     }
 
     private fun readData(articleId: String) {
@@ -43,12 +50,9 @@ class ReadArticleActivity : AppCompatActivity() {
                 val num_rate = it.child("num_rate").value
                 val rate = it.child("rate").value
                 val poster = it.child("posterUri").value
-                val youtubeID = it.child("youtubeID").value
+                val youtubeID = it.child("youtubeID").value.toString()
 
-
-
-
-                Toast.makeText(this, "Successfuly Read", Toast.LENGTH_SHORT).show()
+               Toast.makeText(this, "Successfuly Read", Toast.LENGTH_SHORT).show()
 
                 binding.movieTitle.text = title.toString()
                 binding.movieDescription.text = description.toString()
@@ -60,6 +64,10 @@ class ReadArticleActivity : AppCompatActivity() {
                 Glide.with(this)
                     .load(Uri.parse(poster.toString()))
                     .into(binding.ivMoviePoster)
+                binding.ytplayer.setOnClickListener(View.OnClickListener {
+                    val intent = YouTubeStandalonePlayer.createPlaylistIntent(this,API_KEY,youtubeID)
+                    startActivity(intent)
+                })
 
                 readDirectorsList()
                 readStarList()
@@ -121,4 +129,3 @@ class ReadArticleActivity : AppCompatActivity() {
         })
     }
 }
-//Chưa nhận được articleId
