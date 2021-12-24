@@ -1,15 +1,14 @@
 package com.redhub.controller.mainscreen
 
+//import com.firebase.ui.database.FirebaseRecyclerAdapter
+//import com.firebase.ui.database.FirebaseRecyclerOptions
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -17,14 +16,9 @@ import com.google.firebase.ktx.Firebase
 import com.redhub.R
 import com.redhub.controller.article.ManageArticleActivity
 import com.redhub.controller.profile.ViewProfileActivity
-//import com.firebase.ui.database.FirebaseRecyclerAdapter
-//import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.redhub.databinding.ActivitySearchBinding
 import com.redhub.model.ArticleModel
-import com.redhub.model.DirectorModel
 
-//import com.squareup.picasso.Picasso
-//import kotlinx.android.synthetic.main.layout_list.view.*
 
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
@@ -80,6 +74,18 @@ class SearchActivity : AppCompatActivity() {
                 {
                     val adapter = SearchAdapter(list_search)
                     binding.listView.adapter = adapter
+                    adapter.setOnItemClickListener(object:SearchAdapter.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+
+                            val articleId = list_search[position].articleId.toString()
+
+                            val intent: Intent = Intent(applicationContext,ReadArticleActivity::class.java)
+                            intent.putExtra("articleId",articleId)
+                            startActivity(intent)
+
+                        }
+
+                    })
                 }
 
             }
@@ -91,6 +97,8 @@ class SearchActivity : AppCompatActivity() {
         })
 
     }
+
+
 
     private val navigasjonen = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -138,7 +146,7 @@ class SearchActivity : AppCompatActivity() {
 
     }
 }
-//Chưa chọn được item, chưa truyền được articleId
+
 
 
 
