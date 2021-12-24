@@ -192,14 +192,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
-                android:hint="Direction"
+                android:hint="Director"
                 android:textColorHint="#C0C0C0"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
-            <!-- Button Add Direction-->
+            <!-- Button Add Director-->
             <Button
                 android:id="@+id/btn_add_director"
                 android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                 app:layout_constraintHorizontal_bias="0.876"
                 app:layout_constraintStart_toEndOf="@+id/tv_director"
                 app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
-            <!-- List Direction-->
+            <!-- List Director-->
             <LinearLayout
                 android:id="@+id/parent_linear_layout_director"
                 android:layout_width="match_parent"
