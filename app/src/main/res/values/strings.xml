@@ -6,4 +6,6 @@
     <string name="movie_rate">4.2</string>
     <string name="num_rate">4/5 star</string>
     <string name="movie_description">In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.</string>
+    <string name="username">Username</string>
+    <string name="email">user_123@email.com</string>
 </resources>
