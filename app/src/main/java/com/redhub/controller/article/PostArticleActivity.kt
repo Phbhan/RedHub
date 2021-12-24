@@ -164,6 +164,7 @@ class PostArticleActivity : AppCompatActivity() {
                 val myRef = database.child("article")
                 val articleId: String? = myRef.push().key
                 if (articleId != null) {
+                    myRef.child(articleId).child("articleId").setValue(articleId)
                     myRef.child(articleId).child("rate").setValue(0)
                     myRef.child(articleId).child("numrate").setValue(0)
                     for(i in 0 until stars.size)
