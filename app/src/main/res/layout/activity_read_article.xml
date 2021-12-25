@@ -112,6 +112,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_movie_poster" />
 
+            <!-- Movie rating bar -->
+            <RatingBar
+                android:id="@+id/movie_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/movie_title"
+                tools:ignore="MissingConstraints" />
+
             <!-- Movie info -->
             <TextView
                 android:id="@+id/movie_release_date"
@@ -136,25 +144,6 @@
                 app:layout_constraintStart_toEndOf="@+id/movie_release_date"
                 app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
-            <!-- Movie rating -->
-            <TextView
-                android:id="@+id/movie_num_rate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/num_rate"
-                android:textAppearance="@style/movie_rate"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/movie_rating"
-                app:layout_constraintTop_toBottomOf="@id/movie_release_date" />
-            <TextView
-                android:id="@+id/movie_rating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/movie_rate"
-                android:textAppearance="@style/movie_rate"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/movie_num_rate"
-                app:layout_constraintTop_toBottomOf="@id/movie_release_date" />
 
             <!-- Director -->
             <TextView

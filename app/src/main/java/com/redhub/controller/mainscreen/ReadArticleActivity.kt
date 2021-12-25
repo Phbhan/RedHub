@@ -30,12 +30,17 @@ class ReadArticleActivity : AppCompatActivity() {
         val articleId:String = intent.getStringExtra("articleId").toString()
 
         database = FirebaseDatabase.getInstance().getReference("Article")
+
         readData(articleId)
         binding.movieReviewBtn.setOnClickListener {
             val intent: Intent = Intent(applicationContext,ReviewActivity::class.java)
             intent.putExtra("articleId",articleId)
             startActivity(intent)
         }
+        binding.movieRatingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
+            database.child(articleId).child("rating").setValue(rating)
+        }
+
 
     }
 
@@ -58,15 +63,28 @@ class ReadArticleActivity : AppCompatActivity() {
                 binding.movieDescription.text = description.toString()
                 binding.movieReleaseDate.text= release_date.toString()
                 binding.movieGenre.text = genre.toString()
-                binding.movieNumRate.text=num_rate.toString()
-                binding.movieRating.text = rate.toString()
-                //binding.ivMoviePoster.setImageURI(Uri.parse(poster.toString()))
+
+                binding.ivMoviePoster.setImageURI(Uri.parse(poster.toString()))
                 Glide.with(this)
                     .load(Uri.parse(poster.toString()))
                     .into(binding.ivMoviePoster)
                 binding.ytplayer.setOnClickListener(View.OnClickListener {
                     val intent = YouTubeStandalonePlayer.createPlaylistIntent(this,API_KEY,youtubeID)
                     startActivity(intent)
+                })
+
+                database.child(articleId).child("rating").addValueEventListener(object:ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if(snapshot?.value != null){
+                            val rating : Float = snapshot.value.toString().toFloat()
+                            binding.movieRatingBar.rating = rating
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+
+                    }
+
                 })
 
                 readDirectorsList()
