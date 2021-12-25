@@ -9,6 +9,5 @@ import kotlin.collections.HashMap
 class ArticleModel(val articleId: String,val title: String, val releasedDate: String,
                    val genre: String, val description: String,
                    val youtubeID: String, val directors: ArrayList<DirectorModel>,
-                   val stars: ArrayList<StarModel>, val posterUri: String,
-                   val rates: Float, val numRate: Int)
+                   val stars: ArrayList<StarModel>, val posterUri: String)
 

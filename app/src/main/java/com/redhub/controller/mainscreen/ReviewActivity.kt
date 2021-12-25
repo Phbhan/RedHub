@@ -3,7 +3,11 @@ package com.redhub.controller.mainscreen
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.Toast
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.redhub.R
@@ -15,6 +19,10 @@ import com.redhub.model.ReviewModel
 class ReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReviewBinding
     private lateinit var database: DatabaseReference
+
+    var likereference: DatabaseReference? = null
+    var testclick = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -32,6 +40,59 @@ class ReviewActivity : AppCompatActivity() {
                 saveReview(articleId)
 
         }
+
+        likereference = FirebaseDatabase.getInstance().getReference("likes")
+
+        val options = FirebaseRecyclerOptions.Builder<ReviewModel>()
+            .setQuery(
+                FirebaseDatabase.getInstance().reference.child("review"),
+                ReviewModel::class.java
+            )
+            .build()
+
+        val firebaseRecyclerAdapter: FirebaseRecyclerAdapter<ReviewModel,ReviewAdapter.ViewHolder> =
+        object : FirebaseRecyclerAdapter<ReviewModel,ReviewAdapter.ViewHolder>(options){
+            override fun onCreateViewHolder(
+                parent: ViewGroup,
+                viewType: Int
+            ): ReviewAdapter.ViewHolder {
+                return ReviewAdapter.ViewHolder(
+                    LayoutInflater.from(parent.context)
+                        .inflate(R.layout.layout_review_list, parent, false)
+                )
+            }
+
+            override fun onBindViewHolder(
+                holder: ReviewAdapter.ViewHolder,
+                position: Int,
+                model: ReviewModel
+            ) {
+                val firebaseUser = FirebaseAuth.getInstance().currentUser
+                val userid = firebaseUser!!.uid
+                val postkey = getRef(position).key
+                holder.getLikeButtonStatus(postkey, userid)
+                holder.like_btn.setOnClickListener {
+                    testclick = true
+                    likereference!!.addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if (testclick == true) {
+                                testclick = if (snapshot.child(postkey!!).hasChild(userid)) {
+                                    likereference!!.child(postkey).child(userid).removeValue()
+                                    false
+                                } else {
+                                    likereference!!.child(postkey).child(userid).setValue(true)
+                                    false
+                                }
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {}
+                    })
+                }
+            }
+
+        }
+        firebaseRecyclerAdapter.startListening()
     }
     private fun readReview(articleId: String)
     {
@@ -100,4 +161,3 @@ class ReviewActivity : AppCompatActivity() {
 
     }
 }
-//Chưa like, dislike

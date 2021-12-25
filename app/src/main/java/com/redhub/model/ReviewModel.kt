@@ -4,6 +4,5 @@ data class ReviewModel (
     val reviewId:String="",
     val username: String="",
     val review_content:String="",
-    val like: Int=0,
-    val dislike:Int=0
+    val like: Int=0
 )
