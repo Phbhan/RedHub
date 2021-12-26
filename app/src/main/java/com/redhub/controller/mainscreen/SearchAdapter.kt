@@ -42,7 +42,6 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = list_search[position].title
-        holder.rate.text = list_search[position].rates.toString()
         Picasso.get()
             .load(list_search[position].posterUri)
             .into(holder.imguri)

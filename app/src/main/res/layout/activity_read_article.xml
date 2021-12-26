@@ -112,14 +112,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_movie_poster" />
 
-            <!-- Movie rating bar -->
-            <RatingBar
-                android:id="@+id/movie_rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/movie_title"
-                tools:ignore="MissingConstraints" />
-
             <!-- Movie info -->
             <TextView
                 android:id="@+id/movie_release_date"
@@ -144,20 +136,28 @@
                 app:layout_constraintStart_toEndOf="@+id/movie_release_date"
                 app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
+            <!-- Movie rating bar -->
+            <RatingBar
+                android:id="@+id/movie_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_release_date" />
 
             <!-- Director -->
             <TextView
                 android:id="@+id/tv_director"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:hint="Director"
                 android:textColorHint="#C0C0C0"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_num_rate" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_rating_bar" />
             <!-- List Director -->
             <ScrollView
                 android:id="@+id/sv_director"
