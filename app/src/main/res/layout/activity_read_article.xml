@@ -30,18 +30,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Button Rate -->
+        <Button
+            android:id="@+id/movie_rate_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_rate"
+            app:layout_constraintEnd_toStartOf="@id/movie_save_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Button Save -->
+        <Button
+            android:id="@+id/movie_save_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_save"
+            app:layout_constraintEnd_toStartOf="@id/movie_review_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Button Review -->
         <Button
             android:id="@+id/movie_review_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_review"
+            app:layout_constraintEnd_toStartOf="@id/movie_share_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Button Share -->
+        <Button
+            android:id="@+id/movie_share_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/btn_share"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/btnBack"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <!-- Linear progress indicator -->
         <com.google.android.material.progressindicator.LinearProgressIndicator
