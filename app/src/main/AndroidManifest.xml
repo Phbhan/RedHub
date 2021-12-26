@@ -13,52 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RedHub">
-        <activity
-            android:name=".controller.mainscreen.ReviewActivity"
-            android:exported="false" />
-            android:exported="false" />
-        <activity
-            android:name=".controller.ban.ReportReviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.ban.BanUserActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.ban.BanActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.ban.BanReviewActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.article.DeleteArticleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.article.EditArticleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.article.PostArticleActivity"
-            android:exported="true" />
-        <activity
-            android:name=".controller.article.ManageArticleActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.profile.ChangePasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.mainscreen.MainScreenActivity"
-            android:exported="true" />
 
         <activity
-            android:name=".controller.mainscreen.SearchActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.mainscreen.MoviesGroupByGenresActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.mainscreen.TopMoviesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".controller.mainscreen.ReadArticleActivity"
+            android:name=".controller.mainscreen.ReviewActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,16 +24,74 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".controller.ban.ReportReviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.ban.BanUserActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.ban.BanActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.ban.BanReviewActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.article.DeleteArticleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.article.EditArticleActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".controller.article.PostArticleActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".controller.article.ManageArticleActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.profile.ChangePasswordActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.mainscreen.MainScreenActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".controller.mainscreen.SearchActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.mainscreen.MoviesGroupByGenresActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.mainscreen.TopMoviesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".controller.mainscreen.ReadArticleActivity"
+            android:exported="true" />
 
         <activity
             android:name=".controller.auth.ForgetPasswordActivity"
             android:exported="false" />
+
         <activity
             android:name=".controller.auth.RegistrationActivity"
             android:exported="true" />
+
         <activity
             android:name=".controller.profile.EditProfileActivity"
             android:exported="true" />
+
         <activity
             android:name=".controller.profile.ViewProfileActivity"
             android:exported="true" />
@@ -89,8 +104,5 @@
             android:name=".MainActivity"
             android:exported="true" />
 
-
-
     </application>
-
 </manifest>

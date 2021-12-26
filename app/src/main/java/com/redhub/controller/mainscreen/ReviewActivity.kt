@@ -150,7 +150,7 @@ class ReviewActivity : AppCompatActivity() {
         if(reviewId != null)
         {
             database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
-                binding.postReview.text.clear()
+                binding.postReview.text!!.clear()
 
                 Toast.makeText(this,"Success!",Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{

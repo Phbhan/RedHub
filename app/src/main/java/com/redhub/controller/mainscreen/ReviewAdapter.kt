@@ -31,11 +31,11 @@ class ReviewAdapter(private val list_reviews: ArrayList<ReviewModel>) : Recycler
                     if (snapshot.child(postkey!!).hasChild(userId!!)) {
                         val likecount = snapshot.child(postkey).childrenCount.toInt()
                         like_text.text = "$likecount likes"
-                        //like_btn.setImageResource(R.drawable.ic_baseline_favorite_24)
+                        like_btn.setImageResource(R.drawable.ic_like_on)
                     } else {
                         val likecount = snapshot.child(postkey).childrenCount.toInt()
                         like_text.text = "$likecount likes"
-                        //like_btn.setImageResource(R.drawable.ic_baseline_favorite_border_24)
+                        like_btn.setImageResource(R.drawable.ic_like_off)
                     }
                 }
 
