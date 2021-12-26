@@ -30,18 +30,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Button Rate -->
+        <Button
+            android:id="@+id/movie_rate_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_rate"
+            app:layout_constraintEnd_toStartOf="@id/movie_save_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Button Save -->
+        <Button
+            android:id="@+id/movie_save_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/btn_save"
+            app:layout_constraintEnd_toStartOf="@id/movie_review_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <!-- Button Review -->
         <Button
             android:id="@+id/movie_review_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/btn_review"
+            app:layout_constraintEnd_toStartOf="@id/movie_share_btn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Button Share -->
+        <Button
+            android:id="@+id/movie_share_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/btn_share"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/btnBack"
             app:layout_constraintTop_toTopOf="parent" />
+
 
         <!-- Linear progress indicator -->
         <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -112,14 +145,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_movie_poster" />
 
-            <!-- Movie rating bar -->
-            <RatingBar
-                android:id="@+id/movie_rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/movie_title"
-                tools:ignore="MissingConstraints" />
-
             <!-- Movie info -->
             <TextView
                 android:id="@+id/movie_release_date"
@@ -144,50 +169,37 @@
                 app:layout_constraintStart_toEndOf="@+id/movie_release_date"
                 app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
+            <!-- Movie rating bar -->
+            <RatingBar
+                android:id="@+id/movie_rating_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_release_date" />
 
             <!-- Director -->
             <TextView
                 android:id="@+id/tv_director"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:hint="Director"
                 android:textColorHint="#C0C0C0"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/movie_num_rate" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_rating_bar" />
             <!-- List Director -->
-            <ScrollView
-                android:id="@+id/sv_director"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_director"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fillViewport="true"
-                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_director" >
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingEnd="100dp"
-                    app:layout_constraintEnd_toEndOf="@id/sv_director"
-                    app:layout_constraintStart_toStartOf="@id/sv_director"
-                    app:layout_constraintTop_toTopOf="@id/sv_director" >
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerview_director"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </ScrollView>
+                app:layout_constraintTop_toBottomOf="@id/tv_director" />
 
             <!-- Cast -->
             <TextView
@@ -201,7 +213,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/sv_director" />
+                app:layout_constraintTop_toBottomOf="@+id/recyclerview_director" />
             <!-- List Cast -->
             <ScrollView
                 android:id="@+id/sv_cast"

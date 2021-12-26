@@ -12,4 +12,6 @@
     <string name="user_dob">01/01/2001</string>
     <string name="user_gender">male</string>
     <string name="user_phone">0123456789</string>
+    <string name="review">This is such a great movie I have ever seen! You guy must watch it with your friend..</string>
+    <string name="review_date">25 December 2021</string>
 </resources>

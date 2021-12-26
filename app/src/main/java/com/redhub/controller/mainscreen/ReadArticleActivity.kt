@@ -52,8 +52,7 @@ class ReadArticleActivity : AppCompatActivity() {
                 val description = it.child("description").value
                 val release_date = it.child("release_date").value
                 val genre = it.child("genre").value
-                val num_rate = it.child("num_rate").value
-                val rate = it.child("rate").value
+
                 val poster = it.child("posterUri").value
                 val youtubeID = it.child("youtubeID").value.toString()
 
