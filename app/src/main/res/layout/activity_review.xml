@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".controller.article.PostArticleActivity">
+    tools:context=".controller.mainscreen.ReviewActivity">
 
     <!-- Fixed Header-->
     <androidx.constraintlayout.widget.ConstraintLayout

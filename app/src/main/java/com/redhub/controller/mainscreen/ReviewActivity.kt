@@ -190,18 +190,10 @@ class ReviewActivity : AppCompatActivity() {
 
         if(reviewId != null)
         {
-<<<<<<< Updated upstream
-            database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
-                binding.postReview.text!!.clear()
-=======
-<<<<<<< HEAD
-            database.child(articleId).child("review").child(current_user_name).child(reviewId).setValue(review).addOnSuccessListener {
-                binding.postReview.text.clear()
-=======
-            database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
-                binding.postReview.text!!.clear()
->>>>>>> 44e3521a00ae798f0a48591dad95d2133a9de613
->>>>>>> Stashed changes
+
+            database.child(articleId).child("review").child(current_user_name).child(reviewId).setValue(review).addOnSuccessListener{
+                binding.postReview.text?.clear()
+
 
                 Toast.makeText(this,"Success!",Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{
