@@ -1,17 +1,22 @@
 package com.redhub.controller.mainscreen
 
+import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.redhub.Helper.MyButton
+import com.redhub.Helper.MySwipeHelper
+import com.redhub.Listener.MyButtonClickListener
 import com.redhub.R
-import com.redhub.databinding.ActivityReadArticleBinding
 import com.redhub.databinding.ActivityReviewBinding
 import com.redhub.model.DirectorModel
 import com.redhub.model.ReviewModel
@@ -23,23 +28,40 @@ class ReviewActivity : AppCompatActivity() {
     var likereference: DatabaseReference? = null
     var testclick = false
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.rvReview.setHasFixedSize(true)
         val intent = intent
         val articleId:String = intent.getStringExtra("articleId").toString()
         database = FirebaseDatabase.getInstance().getReference("Article")
-        readReview(articleId)
 
-        val user=FirebaseAuth.getInstance().currentUser
-        val username = user?.displayName
-        binding.currentuserName.text=username
+        var rv_position:Int = 0
 
-        binding.addReviewBtn.setOnClickListener {
+        val swipe = object :MySwipeHelper(this,binding.rvReview,200)
+        {
+            override fun instantiateMyButton(
+                viewHolder: RecyclerView.ViewHolder,
+                buffer: MutableList<MyButton>
+            ) {
+                buffer.add(
+                    MyButton(this@ReviewActivity,"Edit",
+                        30,
+                        0,
+                        Color.parseColor("FF3C30"),
+                        object: MyButtonClickListener{
+                            override fun onClick(position: Int) {
+                               rv_position = position
+                            }
 
-                saveReview(articleId)
+                        })
+                )
+            }
 
         }
+
 
         likereference = FirebaseDatabase.getInstance().getReference("likes")
 
@@ -93,20 +115,32 @@ class ReviewActivity : AppCompatActivity() {
 
         }
         firebaseRecyclerAdapter.startListening()
+
+        val user=FirebaseAuth.getInstance().currentUser
+        val username = user?.displayName
+        binding.currentuserName.text=username
+
+        binding.addReviewBtn.setOnClickListener {
+
+            saveReview(articleId)
+
+        }
+
+        readReview(articleId,rv_position)
     }
-    private fun readReview(articleId: String)
+    private fun readReview(articleId: String,rv_position:Int)
     {
         database.child(articleId).get().addOnSuccessListener{
             if(it.exists()){
-                readReviewList()
+                readReviewList(articleId,rv_position)
             }
         }.addOnFailureListener {
 
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun readReviewList(){
-        database.addValueEventListener(object:ValueEventListener{
+    private fun readReviewList(articleId: String,rv_position:Int){
+        database.child(articleId).addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot)  {
                 val list_reviews = ArrayList<ReviewModel>()
                 for (review in snapshot.child("review").children)
@@ -116,8 +150,15 @@ class ReviewActivity : AppCompatActivity() {
                 }
                 if(list_reviews.size >0)
                 {
+
                     val adapter = ReviewAdapter(list_reviews)
                     binding.rvReview.adapter = adapter
+                    val reviewId = list_reviews[rv_position].reviewId
+                    val intent: Intent = Intent(applicationContext,ReviewActivity::class.java)
+                    intent.putExtra("articleId",articleId)
+                    intent.putExtra("reviewId",reviewId)
+                    startActivity(intent)
+
                 }
 
             }
@@ -131,7 +172,7 @@ class ReviewActivity : AppCompatActivity() {
 
     private fun saveReview(articleId:String)
     {
-        val current_user_name = FirebaseAuth.getInstance().currentUser?.displayName
+        val current_user_name = FirebaseAuth.getInstance().currentUser?.displayName.toString()
         val review_content = binding.postReview.text.toString().trim()
 
         if(review_content.isEmpty()) {
@@ -139,18 +180,28 @@ class ReviewActivity : AppCompatActivity() {
             return
         }
 
-        val reviewId = database.child(articleId).child("review").push().key
+        val reviewId = database.child(articleId).child("review").child(current_user_name).push().key
 
         val review = reviewId?.let{
             if (current_user_name != null) {
-                ReviewModel(it,current_user_name,review_content)
+                ReviewModel(review_content)
             }
         }
 
         if(reviewId != null)
         {
+<<<<<<< Updated upstream
             database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
                 binding.postReview.text!!.clear()
+=======
+<<<<<<< HEAD
+            database.child(articleId).child("review").child(current_user_name).child(reviewId).setValue(review).addOnSuccessListener {
+                binding.postReview.text.clear()
+=======
+            database.child(articleId).child("review").child(reviewId).setValue(review).addOnSuccessListener {
+                binding.postReview.text!!.clear()
+>>>>>>> 44e3521a00ae798f0a48591dad95d2133a9de613
+>>>>>>> Stashed changes
 
                 Toast.makeText(this,"Success!",Toast.LENGTH_SHORT).show()
             }.addOnFailureListener{
