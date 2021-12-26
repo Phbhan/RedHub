@@ -9,8 +9,10 @@
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/base_info.xml" value="0.20092592592592592" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/base_review.xml" value="0.1486111111111111" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/btn_back.xml" value="0.17090301003344482" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/btn_delete.xml" value="0.17263513513513515" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/btn_rate.xml" value="0.1486111111111111" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/btn_review.xml" value="0.26614583333333336" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/btn_write.xml" value="0.17263513513513515" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/gray_button.xml" value="0.17090301003344482" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/ic_home.xml" value="0.20092592592592592" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/drawable/ic_launcher_background.xml" value="0.15729166666666666" />
@@ -25,11 +27,13 @@
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_login.xml" value="0.152" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_main_screen.xml" value="0.16216216216216217" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_manage_article.xml" value="0.16216216216216217" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_post_article.xml" value="0.264" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_read_article.xml" value="0.2" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_registration.xml" value="0.176" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_review.xml" value="0.1" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/activity_view_profile.xml" value="0.1253415300546448" />
+        <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/article_manage_row.xml" value="0.16216216216216217" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/director_row.xml" value="0.16216216216216217" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/layout_director_list.xml" value="0.25" />
         <entry key="..\:/STUDY/N3_HK1/NMCNPM/RedHub/app/src/main/res/layout/layout_review_list.xml" value="0.16216216216216217" />
