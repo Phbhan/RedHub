@@ -142,7 +142,7 @@ class UpdateReviewActivity : AppCompatActivity() {
         )
         val current_user_name = FirebaseAuth.getInstance().currentUser?.displayName.toString()
         database.child(articleId).child("review").child(current_user_name).child(reviewId).updateChildren(review).addOnSuccessListener {
-            binding.postReview.text.clear()
+            binding.postReview.text!!.clear()
             Toast.makeText(this,"Updated!",Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(this,"Fail to edit",Toast.LENGTH_SHORT).show()
