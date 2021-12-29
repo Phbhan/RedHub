@@ -122,12 +122,14 @@ class ManageArticleActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.ic_home -> {
                 val intent = Intent(this@ManageArticleActivity, MainScreenActivity::class.java)
+                myRef.removeEventListener(articleListener)
                 startActivity(intent)
 
             }
 
             R.id.ic_profile -> {
                 val intent = Intent(this@ManageArticleActivity, ViewProfileActivity::class.java)
+                myRef.removeEventListener(articleListener)
                 startActivity(intent)
             }
             R.id.ic_save -> {
@@ -140,6 +142,7 @@ class ManageArticleActivity : AppCompatActivity() {
                         user?.let {
                             authNow = user.email.toString()
                             if (adminValue.compareTo(authNow) == 0) {
+
                             } else {
                                 Toast.makeText(baseContext, "This feature is for admin only",
                                     Toast.LENGTH_SHORT).show()
@@ -153,6 +156,7 @@ class ManageArticleActivity : AppCompatActivity() {
             }
             R.id.ic_search -> {
                 val intent = Intent(this@ManageArticleActivity, SearchActivity::class.java)
+                myRef.removeEventListener(articleListener)
                 startActivity(intent)
             }
 

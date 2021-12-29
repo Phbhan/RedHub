@@ -1,13 +1,16 @@
 package com.redhub.controller.profile
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
@@ -15,6 +18,7 @@ import com.redhub.controller.article.ManageArticleActivity
 import com.redhub.controller.mainscreen.MainScreenActivity
 import com.redhub.controller.mainscreen.SearchActivity
 import com.redhub.databinding.ActivityViewProfileBinding
+import com.redhub.model.BriefArticleModel
 
 class ViewProfileActivity : AppCompatActivity() {
     private val user = Firebase.auth.currentUser
@@ -23,11 +27,29 @@ class ViewProfileActivity : AppCompatActivity() {
     init{
         dataAdmin = FirebaseDatabase.getInstance().reference
     }
+    private lateinit var myRef: DatabaseReference
+    private lateinit var userListener: ValueEventListener
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityViewProfileBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
+        myRef = database.getReference("user").child(user?.uid.toString())
+        userListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                binding.tvUserDOB.text = dataSnapshot.child("DOB").value.toString()
+                binding.tvUserFullname.text = dataSnapshot.child("fullname").value.toString()
+                binding.tvUserGender.text = dataSnapshot.child("gender").value.toString()
+                binding.tvUserPhone.text = dataSnapshot.child("phonenum").value.toString()
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        myRef.addListenerForSingleValueEvent(userListener)
 
         user?.let {
             // Name, email address, and profile photo

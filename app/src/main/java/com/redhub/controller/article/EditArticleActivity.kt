@@ -202,18 +202,23 @@ class EditArticleActivity : AppCompatActivity() {
                     myRef.child(articleId).child("releasedDate").setValue(releasedDate)
                     myRef.child(articleId).child("title").setValue(title)
                 }
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Do you want to back to Manage article?")
-                builder.setPositiveButton("OK"){ _, _ ->
-                    val intent = Intent(this,ManageArticleActivity::class.java)
+                Toast.makeText(baseContext, "Edit success.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,ManageArticleActivity::class.java)
                     startActivity(intent)
-                }
-                builder.setNeutralButton("Cancel"){ dialog, _ ->
-                    dialog.dismiss()
-                }
-                val dialog = builder.create()
-                dialog.show()
             }
+        }
+        binding.btnBack.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Do you want to back to Manage article? Your data is not saved!!!")
+            builder.setPositiveButton("OK"){ _, _ ->
+                val intent = Intent(this,ManageArticleActivity::class.java)
+                startActivity(intent)
+            }
+            builder.setNeutralButton("Cancel"){ dialog, _ ->
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
     }
 

@@ -183,19 +183,23 @@ class PostArticleActivity : AppCompatActivity() {
                     myRef.child(articleId).child("releasedDate").setValue(releasedDate)
                     myRef.child(articleId).child("title").setValue(title)
                 }
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Do you want to back to Manage article?")
-                builder.setPositiveButton("OK"){ _, _ ->
-                    val intent = Intent(this,ManageArticleActivity::class.java)
-                    startActivity(intent)
-                }
-                builder.setNeutralButton("Cancel"){ dialog, _ ->
-                    dialog.dismiss()
-                }
-                val dialog = builder.create()
-                dialog.show()
+                Toast.makeText(baseContext, "Posting success.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,ManageArticleActivity::class.java)
+                startActivity(intent)
             }
-
+        }
+        binding.btnBack.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Do you want to back to Manage article? Your data is not saved!!!")
+            builder.setPositiveButton("OK"){ _, _ ->
+                val intent = Intent(this,ManageArticleActivity::class.java)
+                startActivity(intent)
+            }
+            builder.setNeutralButton("Cancel"){ dialog, _ ->
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
         }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

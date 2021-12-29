@@ -34,10 +34,7 @@ class LoginActivity : AppCompatActivity() {
                 if (password.isEmpty())
                     Toast.makeText(this,"Input password", Toast.LENGTH_LONG).show()
                 else
-                {
-                 Toast.makeText(this,"Login success",Toast.LENGTH_LONG).show()
-                    requestLogin(email,password)
-                }
+                    requestLogin(email, password)
         }
         binding.btnRegister.setOnClickListener{
             val intent = Intent(this, RegistrationActivity::class.java)
@@ -51,7 +48,8 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "signInWithEmail:success")
-                    val user = auth.currentUser
+                    Toast.makeText(baseContext, "Authentication success.",
+                        Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainScreenActivity::class.java)
                     startActivity(intent)
                 } else {
