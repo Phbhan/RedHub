@@ -29,7 +29,7 @@ class ReadArticleActivity : AppCompatActivity() {
         val intent = intent
         val articleId:String = intent.getStringExtra("articleId").toString()
 
-        database = FirebaseDatabase.getInstance().getReference("Article")
+        database = FirebaseDatabase.getInstance().getReference("article")
 
         readData(articleId)
         binding.movieReviewBtn.setOnClickListener {
@@ -38,7 +38,7 @@ class ReadArticleActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.movieRatingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
-            database.child(articleId).child("rating").setValue(rating)
+            database.child(articleId).child("rate").setValue(rating)
         }
 
 
@@ -50,7 +50,7 @@ class ReadArticleActivity : AppCompatActivity() {
             if (it.exists()) {
                 val title = it.child("title").value
                 val description = it.child("description").value
-                val release_date = it.child("release_date").value
+                val release_date = it.child("releaseDate").value
                 val genre = it.child("genre").value
 
                 val poster = it.child("posterUri").value
@@ -72,7 +72,7 @@ class ReadArticleActivity : AppCompatActivity() {
                     startActivity(intent)
                 })
 
-                database.child(articleId).child("rating").addValueEventListener(object:ValueEventListener{
+                database.child(articleId).child("rate").addValueEventListener(object:ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if(snapshot?.value != null){
                             val rating : Float = snapshot.value.toString().toFloat()

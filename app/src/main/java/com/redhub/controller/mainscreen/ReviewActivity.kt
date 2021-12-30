@@ -36,7 +36,7 @@ class ReviewActivity : AppCompatActivity() {
         binding.rvReview.setHasFixedSize(true)
         val intent = intent
         val articleId:String = intent.getStringExtra("articleId").toString()
-        database = FirebaseDatabase.getInstance().getReference("Article")
+        database = FirebaseDatabase.getInstance().getReference("article")
 
         var rv_position:Int = 0
 
