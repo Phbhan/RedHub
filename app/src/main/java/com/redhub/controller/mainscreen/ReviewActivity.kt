@@ -127,6 +127,13 @@ class ReviewActivity : AppCompatActivity() {
         }
 
         readReview(articleId,rv_position)
+        //actionbar
+        var actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Go Back"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
     }
     private fun readReview(articleId: String,rv_position:Int)
     {
@@ -202,5 +209,10 @@ class ReviewActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

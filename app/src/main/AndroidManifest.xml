@@ -16,6 +16,7 @@
 
         <activity
             android:name=".controller.mainscreen.ReviewActivity"
+            android:parentActivityName=".controller.mainscreen.ReadArticleActivity"
             android:exported="true" />
 
         <activity
@@ -59,7 +60,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".controller.mainscreen.SearchActivity"
+            android:name=".controller.auth.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -78,6 +79,7 @@
 
         <activity
             android:name=".controller.mainscreen.ReadArticleActivity"
+            android:parentActivityName=".controller.mainscreen.MainScreenActivity"
             android:exported="true" />
 
         <activity
@@ -97,7 +99,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".controller.auth.LoginActivity"
+            android:name=".controller.mainscreen.SearchActivity"
             android:exported="true" />
 
         <activity

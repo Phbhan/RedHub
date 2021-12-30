@@ -40,7 +40,13 @@ class ReadArticleActivity : AppCompatActivity() {
         binding.movieRatingBar.setOnRatingBarChangeListener { ratingBar, rating, fromUser ->
             database.child(articleId).child("rate").setValue(rating)
         }
-
+        //actionbar
+        var actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Go Back"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
 
     }
 
@@ -144,5 +150,10 @@ class ReadArticleActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
