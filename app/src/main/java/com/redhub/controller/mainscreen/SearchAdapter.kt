@@ -5,13 +5,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.ktx.storage
 import com.redhub.R
 import com.redhub.model.ArticleModel
 import com.redhub.model.StarModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.layout_search_list.view.*
 import kotlinx.android.synthetic.main.layout_star_list.view.*
+import java.io.File
 
 class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
     private  lateinit var  mListener: onItemClickListener
@@ -25,10 +30,13 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
     }
     class ViewHolder(itemView: View,listener: onItemClickListener): RecyclerView.ViewHolder(itemView)
     {
-        val title = itemView.movie_title
-        val rate = itemView.movie_rate
-        val imguri : ImageView=itemView.ArticleImageView
+        val title : TextView
+        val rate : TextView
+        val imguri : ImageView
         init{
+            title = itemView.movie_title
+            rate = itemView.movie_rate
+            imguri =itemView.ArticleImageView
             itemView.setOnClickListener{
                 listener.onItemClick(adapterPosition)
             }
@@ -42,6 +50,7 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = list_search[position].title
+        holder.rate.text = list_search[position].rates.toString()
         Picasso.get()
             .load(list_search[position].posterUri)
             .into(holder.imguri)

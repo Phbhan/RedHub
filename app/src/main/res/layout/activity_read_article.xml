@@ -111,8 +111,9 @@
         android:fillViewport="true"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" >
+        app:layout_constraintTop_toBottomOf="@id/header">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -120,7 +121,7 @@
             android:paddingBottom="200dp"
             app:layout_constraintEnd_toEndOf="@id/scrollView"
             app:layout_constraintStart_toStartOf="@id/scrollView"
-            app:layout_constraintTop_toTopOf="@id/scrollView" >
+            app:layout_constraintTop_toTopOf="@id/scrollView">
 
             <!-- Movie poster -->
             <ImageView
@@ -128,11 +129,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scaleType="matrix"
+                android:src="@drawable/movie_poster"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/movie_poster"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- Movie title -->
             <TextView
@@ -146,17 +147,22 @@
                 app:layout_constraintTop_toBottomOf="@id/iv_movie_poster" />
 
             <!-- Movie info -->
+
+            <!-- Movie rating bar -->
+
             <TextView
                 android:id="@+id/movie_release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:text="@string/release_year"
                 android:textAppearance="@style/content"
+                app:layout_constraintBottom_toBottomOf="@+id/movie_genre"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.355"
+                app:layout_constraintHorizontal_bias="0.331"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/movie_title" />
+                app:layout_constraintTop_toBottomOf="@+id/movie_title"
+                app:layout_constraintVertical_bias="1.0" />
+
             <TextView
                 android:id="@+id/movie_genre"
                 android:layout_width="wrap_content"
@@ -165,11 +171,10 @@
                 android:text="@string/movie_genre"
                 android:textAppearance="@style/content"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintHorizontal_bias="0.528"
                 app:layout_constraintStart_toEndOf="@+id/movie_release_date"
                 app:layout_constraintTop_toBottomOf="@id/movie_title" />
 
-            <!-- Movie rating bar -->
             <RatingBar
                 android:id="@+id/movie_rating_bar"
                 android:layout_width="wrap_content"
@@ -223,7 +228,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_star" >
+                app:layout_constraintTop_toBottomOf="@id/tv_star">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -231,7 +236,7 @@
                     android:paddingEnd="100dp"
                     app:layout_constraintEnd_toEndOf="@id/sv_cast"
                     app:layout_constraintStart_toStartOf="@id/sv_cast"
-                    app:layout_constraintTop_toTopOf="@id/sv_cast" >
+                    app:layout_constraintTop_toTopOf="@id/sv_cast">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerview_star"

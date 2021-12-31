@@ -45,11 +45,11 @@ class RegistrationActivity : AppCompatActivity() {
                 binding.edtEmail.requestFocus()
                 return@setOnClickListener
             }
-            if(PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
-                binding.edtEmail.setError("Please provide valid email!")
-                binding.edtEmail.requestFocus()
-                return@setOnClickListener
-            }
+            //if(!PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
+            //    binding.edtEmail.setError("Please provide valid email!")
+            //    binding.edtEmail.requestFocus()
+            //    return@setOnClickListener
+            //}
             if(password.isEmpty()){
                 binding.edtPassword.setError("Password is required!")
                 binding.edtPassword.requestFocus()

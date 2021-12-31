@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,9 +17,9 @@ import kotlinx.android.synthetic.main.layout_star_list.view.*
 class StarAdapter( private val list_stars: ArrayList<StarModel>) : RecyclerView.Adapter<StarAdapter.ViewHolder>(){
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
-        var name = itemView.star_name
-        var role = itemView.star_role
-        val imguri : ImageView=itemView.StarImageView
+        var name : TextView = itemView.star_name
+        var role : TextView = itemView.star_role
+        val imguri : ImageView = itemView.StarImageView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -31,6 +31,7 @@ class ReviewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityReviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.rvReview.setHasFixedSize(true)
@@ -127,13 +128,7 @@ class ReviewActivity : AppCompatActivity() {
         }
 
         readReview(articleId,rv_position)
-        //actionbar
-        var actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Go Back"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
+
     }
     private fun readReview(articleId: String,rv_position:Int)
     {

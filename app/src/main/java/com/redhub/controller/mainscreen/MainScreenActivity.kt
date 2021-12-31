@@ -24,6 +24,7 @@ import com.redhub.controller.article.ManageArticleActivity
 import com.redhub.controller.profile.ViewProfileActivity
 import com.redhub.databinding.ActivityMainScreenBinding
 import com.redhub.model.BriefArticleModel
+import com.squareup.picasso.Picasso
 
 class MainScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainScreenBinding
@@ -60,19 +61,23 @@ class MainScreenActivity : AppCompatActivity() {
         tv_rate.text = article.rates.toString()
         val iv_poster = inflater.findViewById<ImageView>(R.id.iv_poster)
 
-        val poster = storage.getReferenceFromUrl(article.posterUri)
-        poster.downloadUrl.addOnSuccessListener { uri ->
-            //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
-            Glide.with(this)
-                .load(uri.toString())
-                .override(378 , 297)
-                .into(iv_poster)
-        }.addOnFailureListener {
+        Picasso.get()
+            .load(article.posterUri)
+            .resize(378 , 297)
+            .into(iv_poster)
+        //val poster = storage.getReferenceFromUrl(article.posterUri)
+        //poster.downloadUrl.addOnSuccessListener { uri ->
+        //    //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
+        //    Glide.with(this)
+        //        .load(uri.toString())
+        //        .override(378 , 297)
+        //        .into(iv_poster)
+        //}.addOnFailureListener {
             // Handle any errors
-        }
+        //}
         inflater.setOnClickListener {
             val intent = Intent(this, ReadArticleActivity::class.java)
-            intent.putExtra("articleID",articleID)
+            intent.putExtra("articleId",articleID)
             myRef.removeEventListener(articleListener)
             startActivity(intent)
         }
@@ -86,11 +91,12 @@ class MainScreenActivity : AppCompatActivity() {
                 for (articleSnapshot in dataSnapshot.getChildren()) {
                     val title = articleSnapshot.child("title").getValue().toString()
                     val posterUri = articleSnapshot.child("posterUri").getValue().toString()
-                    val rate = articleSnapshot.child("rate").getValue().toString().toFloat()
+                    //val rate = articleSnapshot.child("rate").getValue().toString().toFloat()
+                    val rate = 0f
                     val briefarticle = BriefArticleModel(title, posterUri, rate)
-                    val articleID = articleSnapshot.key
-                    if (articleID != null) {
-                        addArticleRow(briefarticle, articleID)
+                    val articleId = articleSnapshot.child("articleId").toString()
+                    if (articleId != null) {
+                        addArticleRow(briefarticle, articleId)
                     }
                 }
             }

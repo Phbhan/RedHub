@@ -9,7 +9,10 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
@@ -23,6 +26,10 @@ import com.redhub.model.ArticleModel
 class SearchActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySearchBinding
     private lateinit var database: DatabaseReference
+    private lateinit var searchRecyclerView: RecyclerView
+    private lateinit var list_search : ArrayList<ArticleModel>
+    private var searchAdapter:SearchAdapter?=null
+    private var searchEditText: TextInputEditText?=null
 
     private val user = Firebase.auth.currentUser
 
@@ -36,10 +43,15 @@ class SearchActivity : AppCompatActivity() {
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        database = FirebaseDatabase.getInstance().getReference("Article")
+        searchRecyclerView = binding.listView
+        searchRecyclerView.layoutManager=LinearLayoutManager(this)
+        searchRecyclerView.setHasFixedSize(true)
 
+        list_search = arrayListOf<ArticleModel>()
 
-        binding.searchText.addTextChangedListener(object : TextWatcher {
+        searchEditText = binding.searchText
+
+        searchEditText!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
 
             }
@@ -49,9 +61,8 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
-                val searchText = binding.searchText.getText().toString().trim()
 
-                loadFirebaseData(searchText)
+                loadFirebaseData(p0.toString().toUpperCase())
             }
         })
 
@@ -60,32 +71,34 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun loadFirebaseData(searchText: String) {
+        database = FirebaseDatabase.getInstance().reference
+            .child("article")
 
-        val firebaseSearchQuery = database.orderByChild("name").startAt(searchText).endAt(searchText + "\uf8ff")
+        val firebaseSearchQuery = database.orderByChild("title")
+            .startAt(searchText)
+            .endAt(searchText + "\uf8ff")
         firebaseSearchQuery.addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                val list_search = ArrayList<ArticleModel>()
-                for (search in snapshot.child("article").children)
-                {
-                    val model = search.getValue(ArticleModel::class.java)
-                    list_search.add(model as ArticleModel)
-                }
-                if(list_search.size >0)
-                {
-                    val adapter = SearchAdapter(list_search)
-                    binding.listView.adapter = adapter
-                    adapter.setOnItemClickListener(object:SearchAdapter.onItemClickListener{
+                if(snapshot.exists()){
+                    for (search in snapshot.children)
+                    {
+                        val model = search.getValue(ArticleModel::class.java)
+                        list_search.add(model!!)
+                    }
+                    searchAdapter = SearchAdapter(list_search)
+                    searchAdapter!!.setOnItemClickListener(object:SearchAdapter.onItemClickListener{
                         override fun onItemClick(position: Int) {
 
-                            val articleId = list_search[position].articleId.toString()
+                            val articleId = list_search[position].articleId
 
                             val intent: Intent = Intent(applicationContext,ReadArticleActivity::class.java)
-                            intent.putExtra("articleId",articleId)
+                            intent.putExtra("articleId", articleId)
                             startActivity(intent)
 
                         }
 
                     })
+                    searchRecyclerView.adapter = searchAdapter
                 }
 
             }
@@ -97,6 +110,7 @@ class SearchActivity : AppCompatActivity() {
         })
 
     }
+
 
 
 

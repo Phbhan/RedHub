@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,12 +14,15 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.net.toUri
 import com.bumptech.glide.Glide
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.UploadTask
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerCallback
 import com.redhub.R
@@ -26,6 +30,7 @@ import com.redhub.databinding.ActivityPostArticleBinding
 import com.redhub.model.ArticleModel
 import com.redhub.model.DirectorModel
 import com.redhub.model.StarModel
+import com.squareup.picasso.Picasso
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.properties.Delegates
@@ -140,7 +145,7 @@ class PostArticleActivity : AppCompatActivity() {
         binding.btnSubmit.setOnClickListener {
             var check_empty: Boolean
             var check_director: Boolean
-            val title = binding.etTitle.text.toString()
+            val title = binding.etTitle.text.toString().toUpperCase()
             val releasedDate = binding.etReleaseDate.text.toString()
             val genres = binding.tvGenre.text.toString()
             val description = binding.etDescrip.text.toString()
@@ -149,12 +154,20 @@ class PostArticleActivity : AppCompatActivity() {
                     && !checkEmpty(description, "Description") && !checkEmpty(youtubeID, "Youtube ID")
                     && !checkEmpty(genres, "Genre") && !checkEmpty(posterUri, "Poster"))
 
+
             val directors = getDirector(binding)
             check_director = (!(directors.size == 0))
             if (check_empty && check_director)
             {
                 val stars = getStar(binding)
                 posterUri = uploadImageToFirebase(Uri.parse(posterUri), "poster")
+
+                FirebaseStorage.getInstance().reference.child(posterUri)
+                    .downloadUrl.addOnSuccessListener { Uri->
+                        posterUri = Uri.toString()
+
+                    }
+
                 //val article = ArticleModel(title, releasedDate, genres, description, youtubeID, directors, stars,posterUri, 0, 0)
 
 //                val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
@@ -236,6 +249,9 @@ class PostArticleActivity : AppCompatActivity() {
         if(role == "star"){
             refStorage = refStorage.child("/Star/$fileName")
             var uploadTask  = refStorage.putFile(imageUri!!)
+
+
+
             uploadTask.addOnFailureListener {
                 uploadTask.resume()
                 Log.d("Han", "Upload image fail")
@@ -279,7 +295,12 @@ class PostArticleActivity : AppCompatActivity() {
 
             val starName: EditText = v.findViewById(R.id.et_name_star)
             val starRole: EditText = v.findViewById(R.id.et_role_star)
-            val imageUri = uploadImageToFirebase(Uri.parse(starUriList[i]), "star")
+            var imageUri = uploadImageToFirebase(Uri.parse(starUriList[i]), "star")
+            FirebaseStorage.getInstance().reference.child(imageUri)
+                .downloadUrl.addOnSuccessListener { Uri->
+                    imageUri = Uri.toString()
+
+                }
             starList.add(StarModel(starName.text.toString(), starRole.text.toString(), imageUri))
         }
         return starList
@@ -295,3 +316,5 @@ class PostArticleActivity : AppCompatActivity() {
         return false
     }
 }
+
+

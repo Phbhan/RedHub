@@ -3,6 +3,7 @@ package com.redhub.controller.mainscreen
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.redhub.R
 import com.redhub.model.DirectorModel
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.layout_director_list.view.*
 class DirectorAdapter(private val list_directors: ArrayList<DirectorModel>) : RecyclerView.Adapter<DirectorAdapter.ViewHolder>(){
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
     {
-        var name = itemView.director_name
+        var name : TextView = itemView.director_name
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
