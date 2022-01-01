@@ -57,7 +57,14 @@
 
         <activity
             android:name=".controller.mainscreen.MainScreenActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
 
         <activity
             android:name=".controller.auth.LoginActivity"
@@ -94,15 +101,7 @@
 
         <activity
             android:name=".controller.mainscreen.SearchActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
+            android:exported="true" />
 
         <activity
             android:name=".MainActivity"
