@@ -57,6 +57,10 @@
 
         <activity
             android:name=".controller.mainscreen.MainScreenActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".controller.auth.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -65,10 +69,6 @@
             </intent-filter>
         </activity>
 
-
-        <activity
-            android:name=".controller.auth.LoginActivity"
-            android:exported="true" />
 
         <activity
             android:name=".controller.mainscreen.MoviesGroupByGenresActivity"
