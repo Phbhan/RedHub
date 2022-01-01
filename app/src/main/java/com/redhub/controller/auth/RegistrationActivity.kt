@@ -1,9 +1,11 @@
 package com.redhub.controller.auth
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import com.google.android.gms.tasks.OnCompleteListener
@@ -68,10 +70,17 @@ class RegistrationActivity : AppCompatActivity() {
                     //signup success
                     //get current user
                     val firebaseUser = auth.currentUser
-                    val profileUpdates = UserProfileChangeRequest.Builder().apply {
+
+                    val profileUpdates = userProfileChangeRequest {
                         displayName = username
                         photoUri = Uri.parse("gs://redhub-a0b58.appspot.com/avatar/default_avatar.png")
-                    }.build()
+                    }
+                    firebaseUser!!.updateProfile(profileUpdates)
+                        .addOnCompleteListener{task->
+                            if(task.isSuccessful){
+                                Log.d(TAG,"User profile updated")
+                            }
+                        }
                     Toast.makeText(this,"Success!",Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, LoginActivity::class.java)
                     startActivity(intent)

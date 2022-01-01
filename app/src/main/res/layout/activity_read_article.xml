@@ -191,15 +191,14 @@
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_rating_bar" />
-            <!-- List Director -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_director"
+            <!-- List Direction-->
+            <LinearLayout
+                android:id="@+id/parent_linear_layout_director"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_director" />
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/tv_director"
+                tools:layout_editor_absoluteX="0dp" />
 
             <!-- Cast -->
             <TextView
@@ -213,7 +212,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerview_director" />
+                app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_director" />
             <!-- List Cast -->
             <ScrollView
                 android:id="@+id/sv_cast"
@@ -233,14 +232,15 @@
                     app:layout_constraintStart_toStartOf="@id/sv_cast"
                     app:layout_constraintTop_toTopOf="@id/sv_cast">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerview_star"
+                    <!-- List Actor-->
+                    <LinearLayout
+                        android:id="@+id/parent_linear_layout_star"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_star"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:ignore="NotSibling" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </ScrollView>

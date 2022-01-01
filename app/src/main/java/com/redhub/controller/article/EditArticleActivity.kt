@@ -238,17 +238,21 @@ class EditArticleActivity : AppCompatActivity() {
                 binding.etReleaseDate.setText(released_date)
                 binding.tvGenre.setText(genre)
                 binding.etYtId.setText(youtubeID)
+                Glide.with(this)
+                    .load(poster)
+                    .override(1008 , 792)
+                    .into(binding.ivPoster)
 
-                val getPoster = storage.getReferenceFromUrl(poster)
-                getPoster.downloadUrl.addOnSuccessListener { uri ->
-                    //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
-                    Glide.with(this)
-                        .load(uri.toString())
-                        .override(1008 , 792)
-                        .into(binding.ivPoster)
-                }.addOnFailureListener {
-                    // Handle any errors
-                }
+                //val getPoster = storage.getReferenceFromUrl(poster)
+                //getPoster.downloadUrl.addOnSuccessListener { uri ->
+                //    //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
+                //    Glide.with(this)
+                //        .load(uri.toString())
+                //        .override(1008 , 792)
+                //        .into(binding.ivPoster)
+                //}.addOnFailureListener {
+                //    // Handle any errors
+                //}
 
                 addDirectorEventListener(database.child(articleId).child("director"))
                 addStarEventListener(database.child(articleId).child("star"))

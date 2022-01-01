@@ -15,8 +15,11 @@
         android:theme="@style/Theme.RedHub">
 
         <activity
+            android:name=".controller.mainscreen.UpdateReviewActivity"
+            android:exported="true" />
+
+        <activity
             android:name=".controller.mainscreen.ReviewActivity"
-            android:parentActivityName=".controller.mainscreen.ReadArticleActivity"
             android:exported="true" />
 
         <activity
@@ -80,7 +83,6 @@
 
         <activity
             android:name=".controller.mainscreen.ReadArticleActivity"
-            android:parentActivityName=".controller.mainscreen.MainScreenActivity"
             android:exported="true" />
 
         <activity

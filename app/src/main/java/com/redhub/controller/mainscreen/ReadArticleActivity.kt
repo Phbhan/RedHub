@@ -1,13 +1,15 @@
 package com.redhub.controller.mainscreen
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.RatingBar
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -24,11 +26,17 @@ class ReadArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadArticleBinding
     private lateinit var database: DatabaseReference
     //star
+    private lateinit var starListener: ValueEventListener
+    private val starUriList = ArrayList<String>()
+
     private lateinit var starRecyclerView: RecyclerView
     private lateinit var list_stars : ArrayList<StarModel>
     private var starAdapter:StarAdapter?=null
 
     //director
+    private lateinit var directorListener: ValueEventListener
+
+
     private lateinit var directorRecyclerView: RecyclerView
     private lateinit var list_directors : ArrayList<DirectorModel>
     private var directorAdapter:DirectorAdapter?=null
@@ -57,18 +65,10 @@ class ReadArticleActivity : AppCompatActivity() {
             }
 
         })
-        //director
-        directorRecyclerView = binding.recyclerviewDirector
-        directorRecyclerView.layoutManager= LinearLayoutManager(this)
-        directorRecyclerView.setHasFixedSize(true)
-        list_directors = arrayListOf<DirectorModel>()
-        //star
-        starRecyclerView = binding.recyclerviewStar
-        starRecyclerView.layoutManager= LinearLayoutManager(this)
-        starRecyclerView.setHasFixedSize(true)
-        list_stars = arrayListOf<StarModel>()
-
-
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, MainScreenActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun readData(articleId: String) {
@@ -104,22 +104,10 @@ class ReadArticleActivity : AppCompatActivity() {
 
                 binding.movieRatingBar.rating = rate.toString().toFloat()
 
-                //database.child(articleId).child("rate").addValueEventListener(object:ValueEventListener{
-                //    override fun onDataChange(snapshot: DataSnapshot) {
-                //        if(snapshot?.value != null){
-                //            val rating : Float = snapshot.value.toString().toFloat()
-                //            binding.movieRatingBar.rating = rating
-                //        }
-                //    }
-////
-                //    override fun onCancelled(error: DatabaseError) {
-////
-                //    }
-////
-                //})
 
-                //readDirectorsList(articleId)
-                //readStarList(articleId)
+
+                addDirectorEventListener(database.child(articleId).child("director"))
+                addStarEventListener(database.child(articleId).child("star"))
 
             }
         }.addOnFailureListener {
@@ -129,53 +117,66 @@ class ReadArticleActivity : AppCompatActivity() {
 
     }
 
-    private fun readDirectorsList(articleId: String) {
-        database = FirebaseDatabase.getInstance().getReference("article").child(articleId).child("director")
-        database.addValueEventListener(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (director in snapshot.children)
-                {
-                    val model = director.getValue(DirectorModel::class.java)
-                    if (model != null) {
-                        list_directors.add(model)
-                    }
-                }
-                if(list_directors.size > 0)
-                {
-                    directorAdapter = DirectorAdapter(list_directors)
-                    directorRecyclerView.adapter = directorAdapter
+    private fun addDirectorEventListener(dbReference: DatabaseReference) {
+        // [START post_value_event_listener]
+        directorListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                binding.parentLinearLayoutDirector.removeAllViews()
+                for (directorSnapshot in dataSnapshot.getChildren()) {
+                    val name_val = directorSnapshot.getValue().toString()
+
+                    val inflater = LayoutInflater.from(this@ReadArticleActivity).inflate(R.layout.layout_director_list, null)
+                    binding.parentLinearLayoutDirector.addView(inflater, binding.parentLinearLayoutDirector.childCount)
+                    val director_name = inflater.findViewById<TextView>(R.id.director_name)
+                    director_name.setText(name_val)
+
                 }
             }
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("Cancel",error.toString())
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
             }
-        })
+        }
+        dbReference.addValueEventListener(directorListener)
+        // [END post_value_event_listener]
     }
 
-    private fun readStarList(articleId: String)
-    {
-        database = FirebaseDatabase.getInstance().getReference("article")
-        database.child(articleId).addValueEventListener(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (star in snapshot.child("star").children)
-                {
-                    val model = star.getValue(StarModel::class.java)
-                    list_stars.add(model!!)
+    private fun addStarEventListener(dbReference: DatabaseReference) {
+        // [START post_value_event_listener]
+        starListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                binding.parentLinearLayoutStar.removeAllViews()
+                for (starSnapshot in dataSnapshot.getChildren()) {
+                    val name_val = starSnapshot.child("name").getValue().toString()
+                    val role_val = starSnapshot.child("role").getValue().toString()
+                    val img_star = starSnapshot.child("imgUri").getValue().toString()
+                    starUriList.add(img_star)
+
+                    val inflater = LayoutInflater.from(this@ReadArticleActivity).inflate(R.layout.layout_star_list, null)
+                    binding.parentLinearLayoutStar.addView(inflater, binding.parentLinearLayoutStar.childCount)
+                    val star_name = inflater.findViewById<TextView>(R.id.star_name)
+                    val star_role= inflater.findViewById<TextView>(R.id.star_role)
+                    val iv_star_i = inflater.findViewById<ImageView>(R.id.StarImageView)
+
+
+                    star_name.setText(name_val)
+                    star_role.setText(role_val)
+                    Glide.with(this@ReadArticleActivity)
+                        .load(img_star)
+                        .into(iv_star_i)
+
+
+
                 }
-                if(list_stars.size > 0)
-                {
-                    starAdapter = StarAdapter(list_stars)
-                    starRecyclerView.adapter = starAdapter
-                }
-
             }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.e("Cancel",error.toString())
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
             }
-
-        })
+        }
+        dbReference.addValueEventListener(starListener)
+        // [END post_value_event_listener]
     }
+
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

@@ -31,6 +31,7 @@ class SearchActivity : AppCompatActivity() {
     private var searchAdapter:SearchAdapter?=null
     private var searchEditText: TextInputEditText?=null
 
+
     private val user = Firebase.auth.currentUser
 
     var dataAdmin: DatabaseReference
@@ -94,7 +95,6 @@ class SearchActivity : AppCompatActivity() {
                             val intent: Intent = Intent(applicationContext,ReadArticleActivity::class.java)
                             intent.putExtra("articleId", articleId)
                             startActivity(intent)
-
                         }
 
                     })
@@ -102,11 +102,9 @@ class SearchActivity : AppCompatActivity() {
                 }
 
             }
-
             override fun onCancelled(error: DatabaseError) {
                 Log.e("Cancel",error.toString())
             }
-
         })
 
     }

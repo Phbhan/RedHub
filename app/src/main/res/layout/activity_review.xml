@@ -97,8 +97,8 @@
         <!-- Avatar -->
         <ImageView
             android:id="@+id/ivAvatar"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="62dp"
+            android:layout_height="69dp"
             android:layout_marginTop="55dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.12"
@@ -164,13 +164,14 @@
             app:layout_constraintStart_toStartOf="@id/scrollView"
             app:layout_constraintTop_toTopOf="@id/scrollView" >
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_review"
+            <!-- List Review -->
+            <LinearLayout
+                android:id="@+id/parent_linear_layout_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="0dp"
+                tools:ignore="MissingConstraints" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

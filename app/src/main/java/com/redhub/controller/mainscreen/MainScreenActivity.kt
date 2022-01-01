@@ -61,9 +61,9 @@ class MainScreenActivity : AppCompatActivity() {
         tv_rate.text = article.rates.toString()
         val iv_poster = inflater.findViewById<ImageView>(R.id.iv_poster)
 
-        Picasso.get()
+        Glide.with(this)
             .load(article.posterUri)
-            .resize(378 , 297)
+            .override(378 , 297)
             .into(iv_poster)
         //val poster = storage.getReferenceFromUrl(article.posterUri)
         //poster.downloadUrl.addOnSuccessListener { uri ->

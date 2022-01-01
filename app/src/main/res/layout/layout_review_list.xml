@@ -19,17 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <!-- Button Edit Review -->
-    <Button
-        android:id="@+id/btn_edit_review"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/btn_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Username -->
     <TextView
         android:id="@+id/review_username"
@@ -44,6 +33,7 @@
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< Updated upstream
     <!-- Date Review -->
     <TextView
         android:id="@+id/review_date"
@@ -56,6 +46,9 @@
         android:alpha="0.5"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toBottomOf="@id/review_username" />
+=======
+
+>>>>>>> Stashed changes
 
     <!-- Review -->
     <TextView
@@ -68,30 +61,9 @@
         android:textColor="#C0C0C0"
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toBottomOf="@id/review_date" />
+        app:layout_constraintTop_toBottomOf="@id/review_username" />
 
-    <!-- Button Like -->
-    <ImageView
-        android:id="@+id/like_btn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/ic_like_off"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.297"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/review_content" />
 
-    <!-- Count likes -->
-    <TextView
-        android:id="@+id/like_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="12dp"
-        android:text="Likes"
-        android:textColor="#C0C0C0"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/like_btn"
-        app:layout_constraintTop_toBottomOf="@id/review_content" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
