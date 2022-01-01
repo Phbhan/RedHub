@@ -77,7 +77,8 @@ class MainScreenActivity : AppCompatActivity() {
         //}
         inflater.setOnClickListener {
             val intent = Intent(this, ReadArticleActivity::class.java)
-            intent.putExtra("articleId",articleID)
+            intent.putExtra("articleId", articleID)
+            Log.d("Han", articleID)
             myRef.removeEventListener(articleListener)
             startActivity(intent)
         }
@@ -89,12 +90,11 @@ class MainScreenActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 binding.parentLinearLayoutArticle.removeAllViews()
                 for (articleSnapshot in dataSnapshot.getChildren()) {
-                    val title = articleSnapshot.child("title").getValue().toString()
-                    val posterUri = articleSnapshot.child("posterUri").getValue().toString()
-                    //val rate = articleSnapshot.child("rate").getValue().toString().toFloat()
-                    val rate = 0f
+                    val title = articleSnapshot.child("title").value.toString()
+                    val posterUri = articleSnapshot.child("posterUri").value.toString()
+                    val rate = articleSnapshot.child("rate").value.toString().toFloat()
                     val briefarticle = BriefArticleModel(title, posterUri, rate)
-                    val articleId = articleSnapshot.child("articleId").toString()
+                    val articleId = articleSnapshot.key
                     if (articleId != null) {
                         addArticleRow(briefarticle, articleId)
                     }
