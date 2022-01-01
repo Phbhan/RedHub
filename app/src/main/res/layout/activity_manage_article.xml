@@ -9,35 +9,35 @@
     android:background="@drawable/background"
     tools:context=".controller.profile.ViewProfileActivity">
 
-    <!-- Fixed Header -->
+    <!-- Fixed Header-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header_title"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Button Back -->
-        <Button
-            android:id="@+id/btnBack"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="30dp"
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="106.88dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="25dp"
-            android:background="@drawable/btn_back"
-            app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/logo" />
 
-        <!-- Header -->
+        <!-- Heading -->
         <TextView
-            android:id="@+id/tv_header"
+            android:id="@+id/tv_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginStart="30dp"
             android:text="Manage Article"
-            android:textAppearance="@style/header_title"
+            android:textAppearance="@style/heading"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -47,13 +47,30 @@
             android:id="@+id/btn_upload_article"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginTop="35dp"
             android:background="@drawable/btn_write"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.824" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Menu bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:backgroundTint="#B70F0A"
+        app:itemIconTint="#FFDAD8"
+        app:itemTextColor="#FFDAD8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu"
+        app:labelVisibilityMode="unlabeled" />
 
     <!-- Scroll View -->
     <ScrollView
