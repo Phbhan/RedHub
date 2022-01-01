@@ -43,6 +43,7 @@ class ReadArticleActivity : AppCompatActivity() {
         val intent = intent
         var articleId: String = intent.getStringExtra("articleId").toString()
 
+
         readData(articleId)
         binding.movieReviewBtn.setOnClickListener {
             val intent: Intent = Intent(applicationContext,ReviewActivity::class.java)
