@@ -125,6 +125,8 @@ class UpdateReviewActivity : AppCompatActivity() {
 
             Toast.makeText(this,"Updated!",Toast.LENGTH_SHORT).show()
             val intent = Intent(this, ReviewActivity::class.java)
+            intent.putExtra("articleId",articleId)
+            myRef.removeEventListener(reviewListener)
             startActivity(intent)
         }.addOnFailureListener{
             Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
