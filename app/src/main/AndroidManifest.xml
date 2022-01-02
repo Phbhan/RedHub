@@ -52,7 +52,13 @@
 
         <activity
             android:name=".controller.article.ManageArticleActivity"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <activity
             android:name=".controller.profile.ChangePasswordActivity"
@@ -96,13 +102,7 @@
 
         <activity
             android:name=".controller.mainscreen.SearchActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
 
 
         <activity
