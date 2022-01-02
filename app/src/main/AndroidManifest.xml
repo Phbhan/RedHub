@@ -63,7 +63,7 @@
             android:exported="true" />
 
         <activity
-            android:name=".controller.mainscreen.SearchActivity"
+            android:name=".controller.auth.RegistrationActivity"
             android:exported="true" />
 
         <activity
@@ -83,7 +83,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".controller.auth.RegistrationActivity"
+            android:name=".controller.auth.LoginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -100,20 +100,8 @@
             android:exported="true" />
 
         <activity
-<<<<<<< HEAD
-            android:name=".controller.auth.LoginActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-=======
             android:name=".controller.mainscreen.SearchActivity"
             android:exported="true" />
->>>>>>> d733a73e82314c853c6c951da146e916097da717
 
         <activity
             android:name=".MainActivity"
