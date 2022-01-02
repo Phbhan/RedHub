@@ -276,9 +276,9 @@
                     android:id="@+id/et_yt_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="#FFDAD8"
                     android:inputType="text"
-                    android:textColor="#C0C0C0"
+                    android:backgroundTint="#E61610"
+                    android:textColor="#000000"
                     android:textSize="18sp" />
 
             </com.google.android.material.textfield.TextInputLayout>

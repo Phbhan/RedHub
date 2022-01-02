@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.youtube.player.YouTubeStandalonePlayer
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
 import com.redhub.databinding.ActivityReadArticleBinding
 import com.redhub.model.ArticleModel
@@ -25,6 +26,7 @@ import com.redhub.model.StarModel
 class ReadArticleActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReadArticleBinding
     private lateinit var database: DatabaseReference
+    private val storage = FirebaseStorage.getInstance()
     //star
     private lateinit var starListener: ValueEventListener
     private val starUriList = ArrayList<String>()
@@ -81,7 +83,7 @@ class ReadArticleActivity : AppCompatActivity() {
                 val release_date = it.child("releasedDate").value
                 val genre = it.child("genre").value
                 val rate = it.child("rate").value
-                val poster = it.child("posterUri").value
+                val posterUri = it.child("posterUri").value.toString()
                 val youtubeID = it.child("youtubeID").value.toString()
 
 
@@ -92,11 +94,17 @@ class ReadArticleActivity : AppCompatActivity() {
                 binding.movieReleaseDate.text= release_date.toString()
                 binding.movieGenre.text = genre.toString()
 
+                val poster = storage.getReferenceFromUrl(posterUri)
+                poster.downloadUrl.addOnSuccessListener { uri ->
+                    //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
+                    Glide.with(this)
+                        .load(uri.toString())
+                        .fitCenter()
+                        .into(binding.ivMoviePoster)
+                }.addOnFailureListener {
+                    // Handle any errors
+                }
 
-                Glide.with(this)
-                    .load(poster.toString())
-                    .fitCenter()
-                    .into(binding.ivMoviePoster)
                 binding.ytplayer.setOnClickListener(View.OnClickListener {
                     val intent = YouTubeStandalonePlayer.createVideoIntent(this,API_KEY,youtubeID)
                     startActivity(intent)
@@ -160,12 +168,16 @@ class ReadArticleActivity : AppCompatActivity() {
 
                     star_name.setText(name_val)
                     star_role.setText(role_val)
-                    Glide.with(this@ReadArticleActivity)
-                        .load(img_star)
-                        .into(iv_star_i)
-
-
-
+                    val poster = storage.getReferenceFromUrl(img_star)
+                    poster.downloadUrl.addOnSuccessListener { uri ->
+                        //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
+                        Glide.with(this@ReadArticleActivity)
+                            .load(uri.toString())
+                            .fitCenter()
+                            .into(iv_star_i)
+                    }.addOnFailureListener {
+                        // Handle any errors
+                    }
                 }
             }
             override fun onCancelled(databaseError: DatabaseError) {

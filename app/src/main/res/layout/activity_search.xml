@@ -99,12 +99,20 @@
             app:layout_constraintEnd_toEndOf="@id/scrollView"
             app:layout_constraintStart_toStartOf="@id/scrollView"
             app:layout_constraintTop_toTopOf="@id/scrollView" >
-
+<!--
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+                -->
+            <LinearLayout
+                android:id="@+id/parent_linear_layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

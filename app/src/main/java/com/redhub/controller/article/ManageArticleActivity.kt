@@ -50,6 +50,8 @@ class ManageArticleActivity : AppCompatActivity() {
             val intent = Intent(this,PostArticleActivity::class.java)
             startActivity(intent)
         }
+        val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        bottomNavigation.setOnNavigationItemSelectedListener(navigasjonen)
     }
 
     private fun addArticleRow(article: BriefArticleModel, articleID: String)

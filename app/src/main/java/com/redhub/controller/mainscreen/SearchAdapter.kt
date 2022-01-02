@@ -20,6 +20,7 @@ import java.io.File
 
 class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : RecyclerView.Adapter<SearchAdapter.ViewHolder>(){
     private  lateinit var  mListener: onItemClickListener
+    private val storage = FirebaseStorage.getInstance()
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -51,10 +52,19 @@ class SearchAdapter( private val list_search: ArrayList<ArticleModel>) : Recycle
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = list_search[position].title
         holder.rate.text = list_search[position].rates.toString()
-        Picasso.get()
-            .load(list_search[position].posterUri)
-            .into(holder.imguri)
 
+        val poster = storage.getReferenceFromUrl(list_search[position].posterUri)
+        poster.downloadUrl.addOnSuccessListener { uri ->
+            Picasso.get()
+                .load(uri.toString())
+                .into(holder.imguri)
+        }.addOnFailureListener {
+            // Handle any errors
+        }
+        //Picasso.get()
+        //    .load(list_search[position].posterUri)
+        //    .into(holder.imguri)
+//
     }
 
     override fun getItemCount(): Int {
