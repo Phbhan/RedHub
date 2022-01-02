@@ -119,7 +119,7 @@ class UpdateReviewActivity : AppCompatActivity() {
             binding.postReview.error = "Please enter review"
             return
         }
-        Log.e("content",review_content)
+        Log.e("review",review_content)
         database.child(reviewId).child("content").setValue(review_content).addOnSuccessListener{
             binding.postReview.text?.clear()
 
