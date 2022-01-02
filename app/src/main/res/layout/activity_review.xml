@@ -97,8 +97,8 @@
         <!-- Avatar -->
         <ImageView
             android:id="@+id/ivAvatar"
-            android:layout_width="62dp"
-            android:layout_height="69dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginTop="55dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.12"
@@ -136,7 +136,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/post_review"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="textMultiLine"
                 android:backgroundTint="#FFDAD8"
                 android:textColor="#FFDAD8"
@@ -170,8 +170,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:layout_editor_absoluteX="0dp"
-                tools:ignore="MissingConstraints" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
