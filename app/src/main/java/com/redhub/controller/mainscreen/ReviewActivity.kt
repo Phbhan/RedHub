@@ -44,7 +44,8 @@ class ReviewActivity : AppCompatActivity() {
             saveReview(articleId)
         }
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MainScreenActivity::class.java)
+            val intent = Intent(this, ReadArticleActivity::class.java)
+            intent.putExtra("articleId", articleId)
             startActivity(intent)
         }
 

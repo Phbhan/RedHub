@@ -62,6 +62,11 @@ class UpdateReviewActivity : AppCompatActivity() {
                 updateReview(articleId, reviewId)
         }
 
+        binding.btnBack.setOnClickListener {
+            val intent = Intent(this, ReviewActivity::class.java)
+            intent.putExtra("articleId", articleId)
+            startActivity(intent)
+        }
         val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
         myRef = database.getReference("article").child(articleId).child("review")
         addReviewEventListener(myRef,articleId)
