@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".controller.mainscreen.UpdateReviewActivity">
 
     <!-- Fixed Header-->
@@ -24,7 +23,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginEnd="50dp"
             android:background="@drawable/btn_back"
             app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,13 +63,14 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="30dp"
             android:text="Your review"
-            android:textColor="#FFDAD8"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/footer" />
 
-        <!-- Button Update Review -->
+        <!-- Button Add Review -->
         <Button
             android:id="@+id/update_review_btn"
             android:layout_width="30dp"
@@ -114,20 +114,21 @@
             android:layout_marginTop="50dp"
             android:layout_marginStart="200dp"
             android:text="username"
-            android:textColor="#FFDAD8"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_review" />
 
-        <!-- Edit Review -->
+        <!-- Write Review -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilWriteReview"
             android:layout_width="240dp"
             android:layout_height="75dp"
             android:layout_marginStart="110dp"
-            android:hint="Edit your review"
-            android:textColorHint="#FFDAD8"
+            android:hint="Write your review here"
+            android:textColorHint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.262"
             app:layout_constraintStart_toStartOf="parent"
@@ -138,8 +139,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:inputType="textMultiLine"
-                android:backgroundTint="#FFDAD8"
-                android:textColor="#FFDAD8"
+                android:backgroundTint="#E61610"
+                android:textColor="#000000"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>

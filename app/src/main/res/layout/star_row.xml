@@ -25,7 +25,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:hint="Enter actor name"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toEndOf="@id/iv_star"
@@ -35,9 +35,9 @@
             android:id="@+id/et_name_star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="text"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -48,7 +48,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:hint="Enter role"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toEndOf="@id/iv_star"
@@ -58,9 +58,9 @@
             android:id="@+id/et_role_star"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="text"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -72,9 +72,9 @@
         android:layout_height="40dp"
         android:layout_marginTop="36dp"
         android:alpha="0.8"
-        android:background="@drawable/gray_button"
+        android:background="@drawable/light_button"
         android:text="Delete"
-        android:textAppearance="@style/text_btn_gray"
+        android:textAppearance="@style/text_btn_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.900"
         app:layout_constraintStart_toEndOf="@+id/iv_star"

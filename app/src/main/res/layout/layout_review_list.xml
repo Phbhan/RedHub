@@ -4,34 +4,51 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <!-- Avatar -->
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/light_button"
+        android:padding="15dp">
 
-    <!-- Username -->
-    <TextView
-        android:id="@+id/review_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
-        android:text="username"
-        android:textColor="#C0C0C0"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/review_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="username"
+            android:textColor="#E61610"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Review -->
+        <TextView
+            android:id="@+id/review_content"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:text="review detail"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@id/ivAvatar"
+            app:layout_constraintTop_toBottomOf="@id/review_username" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Button Edit Review
     <Button
@@ -57,19 +74,6 @@
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
         app:layout_constraintTop_toBottomOf="@id/review_username" /> -->
 
-    <!-- Review -->
-    <TextView
-        android:id="@+id/review_content"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:text="review detail"
-        android:textColor="#C0C0C0"
-        android:textSize="15sp"
-        app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toBottomOf="@id/review_username" />
-
     <!-- Button Like
     <ImageView
         android:id="@+id/like_btn"
@@ -94,6 +98,5 @@
         android:textSize="15sp"
         app:layout_constraintStart_toEndOf="@id/like_btn"
         app:layout_constraintTop_toBottomOf="@id/review_content" /> -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

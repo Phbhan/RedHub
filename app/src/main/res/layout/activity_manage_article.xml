@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".controller.profile.ViewProfileActivity">
 
     <!-- Fixed Header-->
@@ -22,8 +21,7 @@
         <ImageView
             android:layout_width="190dp"
             android:layout_height="106.88dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/logo" />
@@ -34,8 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:layout_marginStart="30dp"
-            android:text="Manage Article"
+            android:layout_marginStart="40dp"
+            android:text="Manage"
             android:textAppearance="@style/heading"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,9 +43,9 @@
         <!-- Button Submit -->
         <Button
             android:id="@+id/btn_upload_article"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="70dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/btn_write"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -63,8 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="#B70F0A"
-        app:itemIconTint="#FFDAD8"
-        app:itemTextColor="#FFDAD8"
+        app:itemIconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

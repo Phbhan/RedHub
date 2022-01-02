@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".MainActivity">
 
     <!-- Pattern -->
@@ -39,8 +38,9 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="360dp"
         android:text="Review for Film"
-        android:textColor="#7B6F72"
+        android:textColor="#E61610"
         android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"

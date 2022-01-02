@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".controller.mainscreen.SearchActivity">
 
     <!-- Fixed Header-->
@@ -22,8 +21,7 @@
         <ImageView
             android:layout_width="190dp"
             android:layout_height="106.88dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="25dp"
+            android:layout_marginStart="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/logo" />
@@ -34,8 +32,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
-            android:layout_marginStart="30dp"
-            android:text="Search movies"
+            android:layout_marginStart="40dp"
+            android:text="Search"
             android:textAppearance="@style/heading"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +46,7 @@
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            android:background="#8C111E"
+            android:background="@drawable/light_button"
             android:hint="What do you want to watch?"
             android:textColorHint="#DA6317"
             app:startIconDrawable="@drawable/ic_start_search"
@@ -62,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
                 android:inputType="text"
-                android:textColor="#FFDAD8"
+                android:textColor="#DA6317"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,8 +72,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="#B70F0A"
-        app:itemIconTint="#FFDAD8"
-        app:itemTextColor="#FFDAD8"
+        app:itemIconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

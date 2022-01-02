@@ -6,15 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".controller.profile.ViewProfileActivity">
 
     <!-- Logo -->
     <ImageView
         android:layout_width="190dp"
         android:layout_height="106.88dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/logo" />
@@ -25,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="40dp"
         android:text="Account"
         android:textAppearance="@style/heading"
         app:layout_constraintHorizontal_bias="0.0"
@@ -38,7 +36,7 @@
         android:id="@+id/ivAvatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_heading"
@@ -50,7 +48,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="125dp"
         android:background="@drawable/btn_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -63,10 +61,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="username"
-        android:textColor="#C0C0C0"
+        android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
 
@@ -76,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="user@email.com"
-        android:textColor="#C0C0C0"
+        android:textColor="#7B6F72"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +88,6 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/base_info"
-        android:alpha="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail">
 
@@ -101,7 +99,8 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="60dp"
             android:text="Fullname: "
-            android:textColor="#35424A"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/info" />
@@ -112,7 +111,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="60dp"
             android:text="fullname"
-            android:textColor="#35424A"
+            android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/info" />
@@ -124,7 +123,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="Date of birth: "
-            android:textColor="#35424A"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvFullname" />
@@ -134,7 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:text="01/01/2001"
-            android:textColor="#35424A"
+            android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvFullname" />
@@ -146,7 +146,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="Gender: "
-            android:textColor="#35424A"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDOB" />
@@ -156,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:text="male"
-            android:textColor="#35424A"
+            android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvDOB" />
@@ -168,7 +169,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
             android:text="Phone: "
-            android:textColor="#35424A"
+            android:textColor="#000000"
+            android:textStyle="bold"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGender" />
@@ -178,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="60dp"
             android:text="0123456789"
-            android:textColor="#35424A"
+            android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvGender" />
@@ -191,8 +193,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:backgroundTint="#B70F0A"
-        app:itemIconTint="#FFDAD8"
-        app:itemTextColor="#FFDAD8"
+        app:itemIconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

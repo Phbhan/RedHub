@@ -24,7 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
         android:text="name"
-        android:textColor="#C0C0C0"
+        android:textColor="#000000"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/StarImageView"
@@ -38,7 +38,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:text="role"
-        android:textColor="#C0C0C0"
+        android:textColor="#7B6F72"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@id/StarImageView"
         app:layout_constraintTop_toBottomOf="@id/star_name" />

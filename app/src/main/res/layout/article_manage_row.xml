@@ -24,7 +24,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:text="movie title"
-        android:textColor="#C0C0C0"
+        android:textColor="#E61610"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/iv_poster"
@@ -39,7 +39,7 @@
         android:layout_marginTop="15dp"
         android:text="rate"
         android:textSize="20sp"
-        android:textColor="#C0C0C0"
+        android:textColor="#7B6F72"
         app:layout_constraintStart_toEndOf="@id/iv_poster"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
 

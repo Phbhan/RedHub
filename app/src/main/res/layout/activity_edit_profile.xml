@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
     tools:context=".controller.article.EditArticleActivity">
 
     <!-- Button Back -->
@@ -51,7 +50,7 @@
         android:id="@+id/ivAvatar"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_header"
@@ -63,7 +62,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/btn_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -77,19 +76,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:hint="Fullname"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnUploadAvatar">
+        app:layout_constraintTop_toBottomOf="@id/ivAvatar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="text"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -101,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Date of birth"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +110,9 @@
             android:id="@+id/etDOB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="date"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -125,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Gender"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,9 +134,9 @@
             android:id="@+id/etGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="text"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -149,7 +148,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Phone"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,9 +158,9 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="phone"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -173,7 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Email"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
@@ -183,9 +182,9 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="text"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -198,7 +197,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="Password"
-        android:textColorHint="#C0C0C0"
+        android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.144"
         app:layout_constraintStart_toStartOf="parent"
@@ -208,9 +207,9 @@
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#FFDAD8"
             android:inputType="textPassword"
-            android:textColor="#C0C0C0"
+            android:backgroundTint="#E61610"
+            android:textColor="#000000"
             android:textSize="18sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -222,9 +221,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:alpha="0.8"
-        android:background="@drawable/gray_button"
+        android:background="@drawable/light_button"
         android:text="Edit"
-        android:textAppearance="@style/text_btn_gray"
+        android:textAppearance="@style/text_btn_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toEndOf="@+id/tilPassword"

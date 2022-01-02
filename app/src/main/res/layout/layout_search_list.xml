@@ -10,21 +10,22 @@
     <!-- Image Movies -->
     <ImageView
         android:id="@+id/ArticleImageView"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+
     <!-- Movie title -->
     <TextView
         android:id="@+id/movie_title"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
         android:text="movie title"
-        android:textColor="#C0C0C0"
+        android:textColor="#E61610"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@id/ArticleImageView"
@@ -35,11 +36,12 @@
         android:id="@+id/movie_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
-        android:text="Rate: "
-        android:textColor="#C0C0C0"
+        android:layout_marginTop="15dp"
+        android:text="rate"
         android:textSize="20sp"
+        android:textColor="#7B6F72"
         app:layout_constraintStart_toEndOf="@id/ArticleImageView"
         app:layout_constraintTop_toBottomOf="@id/movie_title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
