@@ -36,8 +36,10 @@ class ViewProfileActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+
         val database = Firebase.database("https://redhub-a0b58-default-rtdb.firebaseio.com/")
         myRef = database.getReference("user").child(user?.uid.toString())
+
         userListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 binding.tvUserDOB.text = dataSnapshot.child("DOB").value.toString()
@@ -45,11 +47,13 @@ class ViewProfileActivity : AppCompatActivity() {
                 binding.tvUserGender.text = dataSnapshot.child("gender").value.toString()
                 binding.tvUserPhone.text = dataSnapshot.child("phonenum").value.toString()
             }
+
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.w(ContentValues.TAG, "loadPost:onCancelled", databaseError.toException())
             }
         }
         myRef.addListenerForSingleValueEvent(userListener)
+
 
         user?.let {
             // Name, email address, and profile photo
@@ -57,6 +61,7 @@ class ViewProfileActivity : AppCompatActivity() {
             binding.tvEmail.text = user.email
 
             val avatarUrl = user.photoUrl.toString()
+            Log.d("Han", avatarUrl)
             val avatar = storage.getReferenceFromUrl(avatarUrl)
             avatar.downloadUrl.addOnSuccessListener { uri ->
                 //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()

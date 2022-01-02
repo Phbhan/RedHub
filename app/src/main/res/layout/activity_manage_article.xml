@@ -73,11 +73,12 @@
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="500dp"
         android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_title" >
+        app:layout_constraintTop_toBottomOf="@id/header_title">
 
         <LinearLayout
             android:id="@+id/parent_linear_layout_article"

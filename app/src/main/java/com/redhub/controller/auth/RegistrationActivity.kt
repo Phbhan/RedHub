@@ -74,7 +74,9 @@ class RegistrationActivity : AppCompatActivity() {
                     val profileUpdates = userProfileChangeRequest {
                         displayName = username
                         photoUri = Uri.parse("gs://redhub-a0b58.appspot.com/avatar/default_avatar.png")
+                        Log.d("Han", photoUri.toString())
                     }
+
                     firebaseUser!!.updateProfile(profileUpdates)
                         .addOnCompleteListener{task->
                             if(task.isSuccessful){
