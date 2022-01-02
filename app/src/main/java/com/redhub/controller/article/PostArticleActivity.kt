@@ -192,8 +192,8 @@ class PostArticleActivity : AppCompatActivity() {
                     myRef.child(articleId).child("title").setValue(title)
                 }
                 Toast.makeText(baseContext, "Posting success.", Toast.LENGTH_SHORT).show()
-//                val intent = Intent(this,ManageArticleActivity::class.java)
-//                startActivity(intent)
+                val intent = Intent(this,ManageArticleActivity::class.java)
+                startActivity(intent)
             }
         }
         binding.btnBack.setOnClickListener {
