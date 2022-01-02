@@ -61,20 +61,20 @@ class MainScreenActivity : AppCompatActivity() {
         tv_rate.text = article.rates.toString()
         val iv_poster = inflater.findViewById<ImageView>(R.id.iv_poster)
 
-        Glide.with(this)
-            .load(article.posterUri)
-            .override(378 , 297)
-            .into(iv_poster)
-        //val poster = storage.getReferenceFromUrl(article.posterUri)
-        //poster.downloadUrl.addOnSuccessListener { uri ->
-        //    //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
-        //    Glide.with(this)
-        //        .load(uri.toString())
-        //        .override(378 , 297)
-        //        .into(iv_poster)
-        //}.addOnFailureListener {
-            // Handle any errors
-        //}
+//        Glide.with(this)
+//            .load(article.posterUri)
+//            .override(378 , 297)
+//            .into(iv_poster)
+        val poster = storage.getReferenceFromUrl(article.posterUri)
+        poster.downloadUrl.addOnSuccessListener { uri ->
+            //Toast.makeText(applicationContext, uri.toString(), Toast.LENGTH_LONG).show()
+            Glide.with(this)
+                .load(uri.toString())
+                .override(378 , 297)
+                .into(iv_poster)
+        }.addOnFailureListener {
+             // Handle any errors
+        }
         inflater.setOnClickListener {
             val intent = Intent(this, ReadArticleActivity::class.java)
             intent.putExtra("articleId", articleID)
@@ -115,6 +115,7 @@ class MainScreenActivity : AppCompatActivity() {
             }
 
             R.id.ic_profile -> {
+                myRef.removeEventListener(articleListener)
                 val intent = Intent(this@MainScreenActivity, ViewProfileActivity::class.java)
                 startActivity(intent)
             }
@@ -132,6 +133,7 @@ class MainScreenActivity : AppCompatActivity() {
                                     this@MainScreenActivity,
                                     ManageArticleActivity::class.java
                                 )
+                                myRef.removeEventListener(articleListener)
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(baseContext, "This feature is for admin only",
@@ -145,6 +147,7 @@ class MainScreenActivity : AppCompatActivity() {
                 })
             }
             R.id.ic_search -> {
+                myRef.removeEventListener(articleListener)
                 val intent = Intent(this@MainScreenActivity, SearchActivity::class.java)
                 startActivity(intent)
             }

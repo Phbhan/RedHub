@@ -160,13 +160,8 @@ class PostArticleActivity : AppCompatActivity() {
             if (check_empty && check_director)
             {
                 val stars = getStar(binding)
+                Log.d("Han", posterUri)
                 posterUri = uploadImageToFirebase(Uri.parse(posterUri), "poster")
-
-                FirebaseStorage.getInstance().reference.child(posterUri)
-                    .downloadUrl.addOnSuccessListener { Uri->
-                        posterUri = Uri.toString()
-
-                    }
 
                 //val article = ArticleModel(title, releasedDate, genres, description, youtubeID, directors, stars,posterUri, 0, 0)
 
@@ -197,8 +192,8 @@ class PostArticleActivity : AppCompatActivity() {
                     myRef.child(articleId).child("title").setValue(title)
                 }
                 Toast.makeText(baseContext, "Posting success.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this,ManageArticleActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this,ManageArticleActivity::class.java)
+//                startActivity(intent)
             }
         }
         binding.btnBack.setOnClickListener {
@@ -250,8 +245,6 @@ class PostArticleActivity : AppCompatActivity() {
             refStorage = refStorage.child("/Star/$fileName")
             var uploadTask  = refStorage.putFile(imageUri!!)
 
-
-
             uploadTask.addOnFailureListener {
                 uploadTask.resume()
                 Log.d("Han", "Upload image fail")
@@ -296,11 +289,7 @@ class PostArticleActivity : AppCompatActivity() {
             val starName: EditText = v.findViewById(R.id.et_name_star)
             val starRole: EditText = v.findViewById(R.id.et_role_star)
             var imageUri = uploadImageToFirebase(Uri.parse(starUriList[i]), "star")
-            FirebaseStorage.getInstance().reference.child(imageUri)
-                .downloadUrl.addOnSuccessListener { Uri->
-                    imageUri = Uri.toString()
 
-                }
             starList.add(StarModel(starName.text.toString(), starRole.text.toString(), imageUri))
         }
         return starList
@@ -316,5 +305,3 @@ class PostArticleActivity : AppCompatActivity() {
         return false
     }
 }
-
-
