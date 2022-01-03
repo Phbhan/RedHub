@@ -78,19 +78,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/footer" />
 
-        <!-- User Current -->
-        <ImageView
-            android:id="@+id/ivBaseUser"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/base_info"
-            android:alpha="0.15"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_review" />
-
         <!-- Avatar -->
         <ImageView
             android:id="@+id/ivAvatar"
@@ -127,7 +114,7 @@
             android:textColorHint="#FFFFFF"
             app:layout_constraintHorizontal_bias="0.262"
             app:layout_constraintStart_toEndOf="@id/ivAvatar"
-            app:layout_constraintTop_toTopOf="@id/ivBaseUser">
+            app:layout_constraintTop_toBottomOf="@id/currentuser_name">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/post_review"
