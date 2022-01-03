@@ -22,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
+        android:singleLine="true"
         android:text="movie title"
         android:textColor="#E61610"
         android:textSize="25sp"
