@@ -23,12 +23,10 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="20dp"
             android:background="@drawable/btn_back"
-            app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/tv_header" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Header -->
         <TextView
@@ -47,12 +45,11 @@
             android:id="@+id/btn_submit"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="25dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/btn_submit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/tv_header" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -91,19 +88,19 @@
                 android:id="@+id/btn_upload_poster"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_marginTop="168dp"
+                android:layout_marginStart="10dp"
                 android:background="@drawable/btn_edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.15"
                 app:layout_constraintStart_toEndOf="@+id/iv_poster"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBottom_toBottomOf="@id/iv_poster" />
 
             <!-- Movie Title -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilMovieTitle"
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:hint="Movie title"
                 android:textColorHint="#7B6F72"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,9 +122,11 @@
             <!-- Release Date -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilReleaseDate"
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:hint="Release Date"
                 android:textColorHint="#7B6F72"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,9 +148,11 @@
             <!-- Description -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilDescription"
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:hint="Description"
                 android:textColorHint="#7B6F72"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -173,9 +174,11 @@
             <!-- Genre tags -->
             <TextView
                 android:id="@+id/tv_genre"
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:drawableEnd="@drawable/btn_dropdown"
                 android:hint="Genre"
                 android:textColorHint="#7B6F72"
@@ -191,10 +194,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
+                android:layout_marginStart="20dp"
                 android:hint="Director"
                 android:textColorHint="#7B6F72"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.073"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
@@ -203,15 +206,13 @@
                 android:id="@+id/btn_add_director"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginStart="25dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginTop="15dp"
                 android:alpha="0.8"
                 android:background="@drawable/light_button"
                 android:text="Add"
                 android:textAppearance="@style/text_btn_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.876"
-                app:layout_constraintStart_toEndOf="@+id/tv_director"
                 app:layout_constraintTop_toBottomOf="@+id/tv_genre" />
             <!-- List Director-->
             <LinearLayout
@@ -228,11 +229,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="35dp"
+                android:layout_marginStart="20dp"
                 android:hint="Cast"
                 android:textColorHint="#7B6F72"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.069"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_director" />
             <!-- Button Add Actor-->
@@ -240,15 +240,13 @@
                 android:id="@+id/btn_add_star"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginStart="55dp"
+                android:layout_marginEnd="20dp"
                 android:layout_marginTop="25dp"
                 android:alpha="0.8"
                 android:background="@drawable/light_button"
                 android:text="Add"
                 android:textAppearance="@style/text_btn_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.878"
-                app:layout_constraintStart_toEndOf="@+id/tv_star"
                 app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_director" />
             <!-- List Actor-->
             <LinearLayout
@@ -262,12 +260,14 @@
             <!-- Trailer Youtube -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTrailerYoutube"
-                android:layout_width="240dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:hint="Youtube ID"
                 android:textColorHint="#7B6F72"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btn_add_ytid"
                 app:layout_constraintHorizontal_bias="0.146"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/parent_linear_layout_star">
@@ -288,13 +288,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
                 android:alpha="0.8"
                 android:background="@drawable/light_button"
                 android:text="Add"
                 android:textAppearance="@style/text_btn_light"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.55"
-                app:layout_constraintStart_toEndOf="@+id/tilTrailerYoutube"
                 app:layout_constraintTop_toBottomOf="@+id/parent_linear_layout_star" />
             <!-- Video Youtube -->
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView

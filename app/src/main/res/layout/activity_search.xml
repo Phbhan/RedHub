@@ -13,6 +13,7 @@
         android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +32,7 @@
             android:id="@+id/tv_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:layout_marginStart="40dp"
             android:text="Search"
             android:textAppearance="@style/heading"
@@ -45,7 +46,7 @@
             android:id="@+id/tilSearch"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/light_button"
             android:hint="What do you want to watch?"
             android:textColorHint="#DA6317"
@@ -95,19 +96,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="200dp"
             app:layout_constraintEnd_toEndOf="@id/scrollView"
             app:layout_constraintStart_toStartOf="@id/scrollView"
             app:layout_constraintTop_toTopOf="@id/scrollView" >
-<!--
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/list_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-                -->
             <LinearLayout
                 android:id="@+id/parent_linear_layout_search"
                 android:layout_width="match_parent"

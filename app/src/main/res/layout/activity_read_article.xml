@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -22,10 +21,9 @@
             android:id="@+id/btnBack"
             android:layout_width="45dp"
             android:layout_height="45dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginStart="30dp"
             android:background="@drawable/btn_back"
-            app:layout_constraintHorizontal_bias="0.592"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,7 +33,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/btn_rate"
             app:layout_constraintEnd_toStartOf="@id/movie_save_btn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -46,7 +44,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/btn_save"
             app:layout_constraintEnd_toStartOf="@id/movie_review_btn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -57,7 +55,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="35dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/btn_review"
             app:layout_constraintEnd_toStartOf="@id/movie_share_btn"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,7 +69,6 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/btn_share"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -83,8 +80,8 @@
             android:layout_gravity="center"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@id/header"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- Error -->
         <TextView
@@ -127,11 +124,11 @@
                 android:id="@+id/iv_movie_poster"
                 android:layout_width="147dp"
                 android:layout_height="184dp"
-                tools:srcCompat="@tools:sample/avatars"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <!-- Movie title -->
             <TextView
@@ -196,10 +193,10 @@
                 android:id="@+id/parent_linear_layout_director"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_director"
-                android:orientation="vertical" />
+                app:layout_constraintTop_toBottomOf="@id/tv_director" />
 
             <!-- Cast -->
             <TextView
@@ -220,18 +217,18 @@
                 android:id="@+id/parent_linear_layout_star"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_star"
-                android:orientation="vertical" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_star" />
 
             <!-- Description -->
             <TextView
                 android:id="@+id/tv_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
                 android:hint="Description"
                 android:textColorHint="#000000"
                 android:textSize="20sp"
@@ -243,10 +240,11 @@
             <!-- Content -->
             <TextView
                 android:id="@+id/movie_description"
-                android:layout_width="360dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
                 android:text="movie description"
                 android:textAppearance="@style/content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -259,8 +257,8 @@
                 android:id="@+id/tv_trailer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_marginStart="5dp"
+                android:layout_marginTop="25dp"
                 android:hint="Trailer"
                 android:textColorHint="#000000"
                 android:textSize="20sp"
@@ -270,22 +268,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/movie_description" />
             <!-- Video Youtube -->
-
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_trailer" >
+                app:layout_constraintTop_toBottomOf="@+id/tv_trailer">
 
-
+                <!-- Button Play -->
                 <Button
                     android:id="@+id/ytplayer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Play" />
-            </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_play"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+            </com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,25 +5,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp" >
+    android:padding="20dp">
 
-    <!-- Image Movies -->
+    <!-- Poster -->
     <ImageView
         android:id="@+id/iv_poster"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
-
     <!-- Movie title -->
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
         android:text="movie title"
         android:textColor="#E61610"
         android:textSize="25sp"
@@ -31,13 +29,13 @@
         app:layout_constraintStart_toEndOf="@id/iv_poster"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Movie rate -->
+    <!-- Rating -->
     <TextView
         android:id="@+id/tv_rate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="15dp"
         android:text="rate"
         android:textSize="20sp"
         android:textColor="#7B6F72"

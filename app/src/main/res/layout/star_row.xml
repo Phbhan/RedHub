@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="10dp" >
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp" >
 
     <!-- Image Actor -->
     <ImageView
         android:id="@+id/iv_star"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -22,12 +21,13 @@
     <!-- Name Actor -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilNameActor"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:hint="Enter actor name"
         android:textColorHint="#7B6F72"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintEnd_toStartOf="@id/btn_delete_star"
         app:layout_constraintStart_toEndOf="@id/iv_star"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -45,12 +45,13 @@
     <!-- Role Actor -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilRoleActor"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:hint="Enter role"
         android:textColorHint="#7B6F72"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.146"
+        app:layout_constraintEnd_toStartOf="@id/btn_delete_star"
         app:layout_constraintStart_toEndOf="@id/iv_star"
         app:layout_constraintTop_toBottomOf="@id/tilNameActor">
 
@@ -68,16 +69,12 @@
     <!-- Button delete actor-->
     <Button
         android:id="@+id/btn_delete_star"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="36dp"
-        android:alpha="0.8"
-        android:background="@drawable/light_button"
-        android:text="Delete"
-        android:textAppearance="@style/text_btn_light"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/btn_delete_row"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.900"
-        app:layout_constraintStart_toEndOf="@+id/iv_star"
         app:layout_constraintTop_toTopOf="parent" />
 
 

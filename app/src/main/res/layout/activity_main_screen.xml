@@ -13,6 +13,7 @@
         android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +32,7 @@
             android:id="@+id/tv_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="80dp"
             android:layout_marginStart="40dp"
             android:text="Home"
             android:textAppearance="@style/heading"

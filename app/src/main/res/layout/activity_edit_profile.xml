@@ -14,12 +14,10 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
+        android:layout_marginStart="20dp"
         android:background="@drawable/btn_back"
-        app:layout_constraintHorizontal_bias="0.592"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tv_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Header -->
     <TextView
@@ -38,12 +36,11 @@
         android:id="@+id/btn_submit"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/btn_submit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_header" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Avatar -->
     <ImageView
@@ -62,23 +59,21 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="120dp"
         android:background="@drawable/btn_edit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/ivAvatar"
-        app:layout_constraintTop_toBottomOf="@id/tv_header" />
+        app:layout_constraintBottom_toBottomOf="@id/ivAvatar" />
 
     <!-- Edit fullname -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFullname"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Fullname"
         android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivAvatar">
 
@@ -96,13 +91,14 @@
     <!-- Edit dob -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilDOB"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Date of birth"
         android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilFullname">
 
@@ -120,13 +116,14 @@
     <!-- Edit gender -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilGender"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Gender"
         android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilDOB">
 
@@ -144,13 +141,14 @@
     <!-- Edit phone -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPhone"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Phone"
         android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilGender">
 
@@ -168,13 +166,14 @@
     <!-- Edit email -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilEmail"
-        android:layout_width="350dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Email"
         android:textColorHint="#7B6F72"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.377"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilPhone">
 
@@ -193,13 +192,14 @@
     <!-- Edit password -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPassword"
-        android:layout_width="250dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:hint="Password"
         android:textColorHint="#7B6F72"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintEnd_toStartOf="@id/btnEdPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
@@ -220,13 +220,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:alpha="0.8"
+        android:layout_marginEnd="20dp"
         android:background="@drawable/light_button"
         android:text="Edit"
         android:textAppearance="@style/text_btn_light"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
-        app:layout_constraintStart_toEndOf="@+id/tilPassword"
         app:layout_constraintTop_toBottomOf="@id/tilEmail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
