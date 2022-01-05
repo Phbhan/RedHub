@@ -15,6 +15,7 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.redhub.R
 import com.redhub.controller.article.ManageArticleActivity
+import com.redhub.controller.auth.LoginActivity
 import com.redhub.controller.mainscreen.MainScreenActivity
 import com.redhub.controller.mainscreen.SearchActivity
 import com.redhub.databinding.ActivityViewProfileBinding
@@ -77,6 +78,13 @@ class ViewProfileActivity : AppCompatActivity() {
 
         binding.btnEditProfile.setOnClickListener{
             val intent = Intent(this, EditProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnLogOut.setOnClickListener {
+            val auth = Firebase.auth
+            auth.signOut()
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
