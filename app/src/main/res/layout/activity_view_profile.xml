@@ -179,6 +179,21 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Logout Button -->
+    <Button
+        android:id="@+id/btn_log_out"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="30dp"
+        android:text="Log out"
+        android:textAppearance="@style/text_btn_red"
+        android:background="@drawable/red_button"
+        android:alpha="0.8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation" />
+
     <!-- Menu bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -193,16 +208,4 @@
         app:menu="@menu/menu"
         app:labelVisibilityMode="unlabeled" />
 
-    <!-- Log out -->
-    <Button
-        android:id="@+id/btn_log_out"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-
-        android:layout_marginBottom="44dp"
-        android:text="Log out"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
